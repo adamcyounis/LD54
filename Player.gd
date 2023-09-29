@@ -1,8 +1,6 @@
-extends Camera2D
+extends CharacterBody2D
+@onready var state_machine = $StateMachine
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,6 +8,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var time = Time.get_ticks_msec()/1000.0
-	position.x = sin(time) * 10
+func _process(_delta):
+	pass
+
+func _physics_process(_delta):
+	pass

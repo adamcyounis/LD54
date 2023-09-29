@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://brdy47ug2d5me"]
+
+[ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Parallax Test/Level 1/Level 1_background.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Parallax Test/Level 1/Level 1_midground.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Parallax Test/Level 1/Level 1_foreground.png" id="3"]
+[ext_resource type="Script" path="res://MoveToClick.gd" id="4"]
+[ext_resource type="Script" path="res://Player.gd" id="5"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="6"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+
+[node name="root" type="Node2D"]
+
+[node name="Character" type="CharacterBody2D" parent="."]
+script = ExtResource("5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+shape = SubResource("1")
+
+[node name="StateMachine" type="Node" parent="Character"]
+script = ExtResource("6")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Level"]
+
+[node name="Back" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+
+[node name="Level1Background" type="Sprite2D" parent="Level/ParallaxBackground/Back"]
+texture = ExtResource("1")
+
+[node name="Mid" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+
+[node name="Level1Midground" type="Sprite2D" parent="Level/ParallaxBackground/Mid"]
+texture = ExtResource("2")
+
+[node name="Fore" type="ParallaxLayer" parent="Level/ParallaxBackground"]
+motion_scale = Vector2(2, 1)
+
+[node name="Level1Foreground" type="Sprite2D" parent="Level/ParallaxBackground/Fore"]
+texture = ExtResource("3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 10.388)
+script = ExtResource("4")
