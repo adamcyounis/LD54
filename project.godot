@@ -11,11 +11,31 @@ config_version=4
 [application]
 
 config/name="LD54"
+run/main_scene="res://Demo Scene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=160
+window/size/height=160
+window/size/test_width=640
+window/size/test_height=640
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+filter=false
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [physics]
 

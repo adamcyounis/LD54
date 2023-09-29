@@ -1,0 +1,47 @@
+name: Build Godot Project
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  export_web:
+    name: Export
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: LD54
+        id: export
+        uses: firebelley/godot-export@v5.0.0
+        with:
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5.3/Godot_v3.5.3-stable_linux_headless.64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5.3/Godot_v3.5.3-stable_export_templates.tpz
+          relative_project_path: ./
+          archive_output: true
+          use_preset_export_path: true
+          use_godot_3: true
+          export_debug: false
+
+      - name: Upload web build to itch
+        uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{ secrets.BUTLER_KEY }}
+          gameData: ./bin/web/web.zip
+          itchUsername: uppon-hill
+          itchGameId: LD54
+          buildChannel: html5
+
+      - name: Upload windows build to itch
+        uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{ secrets.BUTLER_KEY }}
+          gameData: ./bin/win/win.zip
+          itchUsername: uppon-hill
+          itchGameId: LD54
+          buildChannel: windows
