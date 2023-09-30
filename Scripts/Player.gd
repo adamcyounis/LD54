@@ -41,9 +41,10 @@ func _physics_process(_delta):
 	myBody.move_and_slide()
 	var counter = 0
 	for sensor in wallSensors:
-		if sensor.get_overlapping_bodies().size()> 1:
+		if sensor.get_overlapping_bodies().size() >= 1:
 			counter += 1
-	if (counter >= 2):
+
+	if (counter >= 1):
 		#die
 		GameManager.singleton.player_died()
 

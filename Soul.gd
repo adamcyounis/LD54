@@ -32,9 +32,7 @@ func do():
 		elif(state == despawn):
 			complete()
 
-	#check if z key was pressed
-	if(Input.is_action_just_pressed("return-to-player")):
-		set_state(despawn, true)
+	
 
 func dismiss():
 	set_state(despawn, true)
@@ -54,10 +52,10 @@ func _process(_delta):
 
 	if !is_active_state() && state == despawn:
 		body.global_position = bodyState.global_position
-	
+	#check if z key was pressed
 	#toggleProcess()
 	#print(collider.is_physics_processing_internal())
-	pass 
+	
 
 
 

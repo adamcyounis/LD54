@@ -53,9 +53,12 @@ polygon = PackedVector2Array(0, 640, 640, 640, 640, 355, 638, 355, 638, 356, 637
 texture = ExtResource("4_ntpu7")
 
 [node name="Player" parent="." instance=ExtResource("5_wu3js")]
+position = Vector2(-26, 60)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(0, 10.388)
 script = ExtResource("6_yt2ng")
-target = NodePath("../Player")
+target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 20.0
+
+[editable path="Player"]

@@ -22,6 +22,11 @@ func _process(_delta):
 		if(machine.state == soul):
 			machine.set_state(body, true)
 
+	if(Input.is_action_just_pressed("return-to-player")):
+		machine.set_state(soul)
+		soul.set_state(soul.despawn, true)
+		
+
 	#on space bar, switch between body and soul
 	if(Input.is_action_just_pressed("ui_accept")):
 		if(machine.state == body):

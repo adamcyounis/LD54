@@ -19,7 +19,7 @@ radius = 4.01
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38dy"]
-size = Vector2(1, 11)
+size = Vector2(1, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mr4e6"]
 radius = 4.0
@@ -34,6 +34,7 @@ soul = NodePath("StateMachine/Soul")
 script = ExtResource("2_0jsn0")
 
 [node name="Body" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "wallSensors")]
+collision_layer = 4
 script = ExtResource("1_r1t6e")
 myBody = NodePath(".")
 mySprite = NodePath("Sprite2D")
@@ -71,19 +72,20 @@ speed = 70.0
 [node name="Area2D" type="Area2D" parent="StateMachine/Body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body/Area2D"]
-position = Vector2(2, 0)
+position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
 [node name="Area2D2" type="Area2D" parent="StateMachine/Body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body/Area2D2"]
-position = Vector2(-2, 0)
+position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
 texture = ExtResource("7_kw0mk")
 
 [node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("bodyState", "myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
+collision_layer = 2
 script = ExtResource("9_2ijyh")
 bodyState = NodePath("../Body")
 myBody = NodePath(".")
