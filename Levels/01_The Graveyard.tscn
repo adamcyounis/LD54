@@ -50,7 +50,7 @@ texture = ExtResource("5_j1huy")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
 script = ExtResource("1_dbgv5")
-parallax = Vector2(-0.5, 0)
+parallax = Vector2(-1, 0)
 
 [node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
 
@@ -59,6 +59,7 @@ position = Vector2(-320, -320)
 polygon = PackedVector2Array(228, 526, 218, 526, 218, 527, 204, 527, 204, 528, 193, 528, 193, 529, 185, 529, 185, 530, 178, 530, 178, 531, 170, 531, 170, 532, 160, 532, 160, 533, 146, 533, 146, 534, 132, 534, 132, 535, 119, 535, 119, 536, 107, 536, 107, 537, 95, 537, 95, 538, 43, 538, 43, 539, 35, 539, 35, 540, 0, 540, 0, 640, 640, 640, 640, 529, 627, 529, 627, 530, 585, 530, 585, 531, 570, 531, 570, 532, 522, 532, 522, 533, 504, 533, 504, 534, 329, 534, 329, 533, 319, 533, 319, 532, 310, 532, 310, 531, 300, 531, 300, 530, 286, 530, 286, 529, 267, 529, 267, 528, 254, 528, 254, 527, 246, 527, 246, 526, 238, 526, 238, 525, 228, 525)
 
 [node name="Foreground Sprite" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+z_index = 1
 texture = ExtResource("6_1yt1l")
 
 [node name="Player" parent="." instance=ExtResource("7_xw1e7")]
@@ -72,11 +73,11 @@ script = ExtResource("9_jkcwu")
 shape = SubResource("RectangleShape2D_gn2xd")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(0, 10.388)
+position = Vector2(-1, 10.388)
 script = ExtResource("8_qk64w")
-target = NodePath("../Player/StateMachine/Soul")
+target = NodePath("../Player/StateMachine/Soul/Sprite2D")
 followSpeed = 10.0
-magnitude = 0.1
+magnitude = 0.2
 
 [node name="Door" parent="." instance=ExtResource("10_mchid")]
 position = Vector2(70, 55)

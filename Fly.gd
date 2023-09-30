@@ -25,5 +25,3 @@ func check_input():
 	var d = Input.get_action_strength("ui_down")
 	input.y = d-u
 
-	if(Input.is_action_just_pressed("ui_accept") && time() > 100):
-		complete()

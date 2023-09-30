@@ -1,5 +1,6 @@
 class_name Soul extends State
 
+@export var bodyState: Node2D
 @export var myBody: CharacterBody2D
 @export var mySprite: Sprite2D
 @export var collider: CollisionShape2D
@@ -15,7 +16,11 @@ func _ready():
 
 func enter():
 	super()
-	set_state(spawn, true)
+	if(state == fly):
+		set_state(fly)
+		pass
+	else:
+		set_state(spawn, true)
 
 func do():
 	super()
@@ -27,18 +32,29 @@ func do():
 		elif(state == despawn):
 			complete()
 
+	#check if z key was pressed
+	if(Input.is_action_just_pressed("return-to-player")):
+		set_state(despawn, true)
+
+func dismiss():
+	set_state(despawn, true)
+
 func _process(_delta):
 
 	if(is_active_state() && !body.visible):	
 		showMe(true)
-	elif(!is_active_state() && body.visible):
+		
+	elif(!is_active_state() && state == despawn && body.visible):
 		showMe(false)
-
+		
 	if(state == fly && collider.disabled):
 		collideMe(true)
 	elif(state != fly and !collider.disabled):
 		collideMe(false)
 
+	if !is_active_state() && state == despawn:
+		body.global_position = bodyState.global_position
+	
 	#toggleProcess()
 	#print(collider.is_physics_processing_internal())
 	pass 
@@ -47,10 +63,10 @@ func _process(_delta):
 
 func showMe(show: bool):
 	if(show):
-		body.show()
+		body.visible = true
 	else:
-		body.hide()
-	
+		body.visible = false
+
 func collideMe(collide: bool):
 	if(collide):
 		collider.disabled = false

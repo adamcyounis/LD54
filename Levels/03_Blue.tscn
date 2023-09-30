@@ -63,10 +63,12 @@ position = Vector2(-58, -58)
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(-31, -37)
 script = ExtResource("6_r0pv6")
-target = NodePath("../Player")
+target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
 magnitude = 0.7
 
 [node name="Door" parent="." instance=ExtResource("7_klftm")]
 position = Vector2(74, 60)
 nextScene = ExtResource("8_8w0ln")
+
+[editable path="Player"]

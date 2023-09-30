@@ -26,6 +26,8 @@ func _process(_delta):
 	if(Input.is_action_just_pressed("ui_accept")):
 		if(machine.state == body):
 			machine.set_state(soul, true)
+		else:
+			machine.set_state(body, true)
 
 func _physics_process(_delta):
 	machine.physics_do()

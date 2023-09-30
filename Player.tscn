@@ -83,8 +83,9 @@ shape = SubResource("RectangleShape2D_c38dy")
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
 texture = ExtResource("7_kw0mk")
 
-[node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
+[node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("bodyState", "myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
 script = ExtResource("9_2ijyh")
+bodyState = NodePath("../Body")
 myBody = NodePath(".")
 mySprite = NodePath("Sprite2D")
 collider = NodePath("CollisionShape2D")
