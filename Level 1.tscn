@@ -8,6 +8,6 @@
 [node name="GameManager" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_jfsf8")
-scenes = [ExtResource("2_jt4qm"), ExtResource("3_s61nf"), ExtResource("4_e6a0p")]
+scenes = [ExtResource("4_e6a0p"), ExtResource("3_s61nf"), ExtResource("2_jt4qm")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

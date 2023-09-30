@@ -7,6 +7,8 @@ var drift: Vector2
 var targetPos
 var targetStartPos
 
+#@onready var body = find_children("","StaticBody2D", true)[0]
+#@onready var sprite = find_children("","Sprite2D", true)[0]
 
 @export var recalculateGeometry = false
 
@@ -21,8 +23,13 @@ func _ready():
 func _process(_delta):
 	if(Engine.is_editor_hint()):
 		if recalculateGeometry:
+			
+			var body = find_children("*","CharacterBody2D", true)[0]
+			var sprite = find_children("*","Sprite2D", true)[0]
 			print("recalculating geometry")
-
+			print(sprite)
+			print(body)
+			
 			recalculateGeometry = false
 		return
 	else:

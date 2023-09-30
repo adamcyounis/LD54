@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvfb61h4evvk7"]
+[gd_scene load_steps=9 format=3 uid="uid://cvfb61h4evvk7"]
 
 [ext_resource type="Script" path="res://Parallax.gd" id="1_tquw6"]
 [ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Parallax Test/Level 1/Level 1_background.png" id="2_dwj8a"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Parallax Test/Level 1/Level 1_foreground.png" id="4_7au07"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_8yoct"]
 [ext_resource type="Script" path="res://MoveToClick.gd" id="6_bhwxm"]
+[ext_resource type="Script" path="res://Levels/DeathZone.gd" id="7_n8w4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn2xd"]
 
 [node name="Click To Move" type="Node2D"]
 
@@ -53,3 +56,10 @@ texture = ExtResource("4_7au07")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 10.388)
 script = ExtResource("6_bhwxm")
+
+[node name="Death Hit Area" type="Area2D" parent="."]
+position = Vector2(-1, 39)
+script = ExtResource("7_n8w4o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Hit Area"]
+shape = SubResource("RectangleShape2D_gn2xd")

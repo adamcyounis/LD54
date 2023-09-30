@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 @onready var machine = $StateMachine
 @onready var groundControl = $StateMachine/PlayerGroundControl
 @onready var airControl = $StateMachine/PlayerJump
@@ -13,6 +13,7 @@ func _ready():
 	machine.sprite = sprite
 	machine.setup_tree()
 	machine.set_state(groundControl)
+	GameManager.set_player(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
