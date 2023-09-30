@@ -1,4 +1,5 @@
-extends Area2D
+class_name Door extends Area2D
+
 @export var nextScene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,4 +15,3 @@ func _on_body_entered(body):
 	#check to see if the body belongs to GameManager.singleton.player
 	if body == GameManager.singleton.player:
 		GameManager.singleton.prepare_level(nextScene)
-		

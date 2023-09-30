@@ -1,14 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk4ptr42f61f1"]
+[gd_scene load_steps=8 format=3 uid="uid://bk4ptr42f61f1"]
 
 [ext_resource type="Script" path="res://Scripts/00_GameManager.gd" id="1_1ig5f"]
-[ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/click_to_move.tscn" id="2_3og32"]
+[ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="2_3stm7"]
+[ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/01_The Graveyard.tscn" id="2_sxqsy"]
 [ext_resource type="PackedScene" uid="uid://d2ipxvd4j6c61" path="res://Levels/moves_between_points.tscn" id="3_tpla6"]
 [ext_resource type="PackedScene" uid="uid://4yas8a0hg7og" path="res://Levels/moves_with_player.tscn" id="4_1pj80"]
-[ext_resource type="PackedScene" uid="uid://drmepl3nm5p3l" path="res://Levels/Door Test Level.tscn" id="5_xv6sv"]
+
+[sub_resource type="Gradient" id="Gradient_vneac"]
+colors = PackedColorArray(0.0745098, 0.0745098, 0.113725, 1, 0.0745098, 0.0745098, 0.113725, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hu20d"]
+gradient = SubResource("Gradient_vneac")
+fill_from = Vector2(0.611111, 0.538462)
 
 [node name="GameManager" type="Node2D"]
 position = Vector2(1, 1)
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_3og32"), ExtResource("3_tpla6"), ExtResource("4_1pj80"), ExtResource("5_xv6sv")])
+scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_3stm7"), ExtResource("3_tpla6"), ExtResource("4_1pj80")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_hu20d")

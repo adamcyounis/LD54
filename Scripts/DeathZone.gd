@@ -14,5 +14,4 @@ func _process(delta):
 func _on_body_entered(body):
 	#check to see if the body belongs to GameManager.singleton.player
 	if body == GameManager.singleton.player:
-		GameManager.singleton.player.position = Vector2(0,0)
-		
+		GameManager.respawn_player()		

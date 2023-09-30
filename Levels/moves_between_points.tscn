@@ -1,11 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2ipxvd4j6c61"]
+[gd_scene load_steps=10 format=3 uid="uid://d2ipxvd4j6c61"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_pgs0t"]
 [ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Level Designs/Level 1/Level 1_background.png" id="2_cxb00"]
 [ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Level Designs/Level 1/Level 1_midground.png" id="3_tjbpd"]
 [ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Level Designs/Level 1/Level 1_foreground.png" id="4_tf2vu"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_rryoj"]
-[ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="6_b1yr8"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_futqj"]
+
+[sub_resource type="Gradient" id="Gradient_swldj"]
+offsets = PackedFloat32Array(0, 0.99115)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gds8p"]
+gradient = SubResource("Gradient_swldj")
+fill = 1
+fill_from = Vector2(0.521368, 0.495726)
+fill_to = Vector2(0.153846, 0.752137)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r0hr"]
+radius = 3.0
 
 [node name="Moves Between points" type="Node2D"]
 
@@ -53,17 +66,19 @@ texture = ExtResource("4_tf2vu")
 
 [node name="Player" parent="." instance=ExtResource("5_rryoj")]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("points")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 10.388)
-script = ExtResource("6_b1yr8")
-points = [NodePath("../Interest Points/Node2D"), NodePath("../Interest Points/Node2D4")]
-interval = 4.0
-speed = 4
+script = ExtResource("6_futqj")
 
-[node name="Interest Points" type="Node" parent="."]
+[node name="Soul" type="Node2D" parent="."]
+position = Vector2(14, 48)
 
-[node name="Node2D" type="Marker2D" parent="Interest Points"]
-position = Vector2(35, 59)
+[node name="Sprite2D" type="Sprite2D" parent="Soul"]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("GradientTexture2D_gds8p")
 
-[node name="Node2D4" type="Marker2D" parent="Interest Points"]
-position = Vector2(-6, 59)
+[node name="Area2D" type="Area2D" parent="Soul/Sprite2D"]
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Soul/Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_3r0hr")

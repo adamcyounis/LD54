@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(8, 16)
+size = Vector2(6, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38dy"]
 size = Vector2(1, 14)
@@ -55,11 +55,11 @@ texture = ExtResource("7_kw0mk")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3.5, 0)
+position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-3.5, 0)
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_c38dy")

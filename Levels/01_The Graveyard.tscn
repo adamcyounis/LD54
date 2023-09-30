@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvfb61h4evvk7"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_dbgv5"]
+[ext_resource type="Texture2D" uid="uid://cwry0tv88rx" path="res://Sprites/Level Designs/Level 3/Level 3_background.png" id="2_71hwe"]
+[ext_resource type="Script" path="res://Parallax.gd" id="3_q8ahl"]
+[ext_resource type="Texture2D" uid="uid://brwfn3ivnbvic" path="res://Sprites/Level Designs/Level 3/Level 3_no collision mid.png" id="4_8vbgm"]
+[ext_resource type="Texture2D" uid="uid://daawg4l2wqvmc" path="res://Sprites/Level Designs/Level 3/Level 3_midground.png" id="5_j1huy"]
+[ext_resource type="Texture2D" uid="uid://dmtgn1i2dtt4x" path="res://Sprites/Level Designs/Level 3/Level 3_foreground.png" id="6_1yt1l"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="7_xw1e7"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="8_qk64w"]
+[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="9_jkcwu"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="10_mchid"]
+[ext_resource type="PackedScene" uid="uid://drmepl3nm5p3l" path="res://Levels/02_Twilight.tscn" id="11_omhms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn2xd"]
+size = Vector2(336, 20)
+
+[node name="Click To Move" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Parallax Layers" type="Node2D" parent="Environment"]
+
+[node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_dbgv5")
+parallax = Vector2(1, 0)
+
+[node name="Background Sprite" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+texture = ExtResource("2_71hwe")
+
+[node name="No Collide Mid" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("3_q8ahl")
+parallax = Vector2(0.1, 0)
+
+[node name="No Collide Mid" type="Sprite2D" parent="Environment/Parallax Layers/No Collide Mid"]
+texture = ExtResource("4_8vbgm")
+
+[node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_dbgv5")
+parallax = Vector2(0, 0)
+
+[node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
+
+[node name="@CollisionPolygon2D@613657" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(0, 640, 332, 640, 332, 569, 334, 569, 334, 570, 335, 570, 335, 571, 337, 571, 337, 572, 338, 572, 338, 573, 339, 573, 339, 574, 340, 574, 340, 575, 341, 575, 341, 576, 342, 576, 342, 577, 344, 577, 344, 578, 345, 578, 345, 579, 348, 579, 348, 580, 351, 580, 351, 581, 359, 581, 359, 580, 362, 580, 362, 579, 365, 579, 365, 640, 640, 640, 640, 399, 486, 399, 486, 398, 473, 398, 473, 397, 455, 397, 455, 396, 438, 396, 438, 395, 428, 395, 428, 394, 415, 394, 415, 393, 405, 393, 405, 392, 394, 392, 394, 393, 393, 393, 393, 392, 375, 392, 375, 393, 374, 393, 374, 391, 355, 391, 355, 392, 354, 392, 354, 391, 353, 391, 353, 385, 354, 385, 354, 384, 336, 384, 336, 385, 337, 385, 337, 391, 336, 391, 336, 392, 335, 392, 335, 390, 334, 390, 334, 380, 333, 380, 333, 374, 334, 374, 334, 372, 335, 372, 335, 368, 309, 368, 309, 372, 310, 372, 310, 374, 311, 374, 311, 380, 310, 380, 310, 391, 309, 391, 309, 392, 295, 392, 295, 389, 296, 389, 296, 387, 283, 387, 283, 383, 284, 383, 284, 381, 274, 381, 274, 365, 264, 365, 264, 364, 261, 364, 261, 351, 262, 351, 262, 347, 263, 347, 263, 344, 265, 344, 265, 343, 267, 343, 267, 313, 268, 313, 268, 273, 269, 273, 269, 253, 325, 253, 325, 247, 326, 247, 326, 198, 327, 198, 327, 195, 328, 195, 328, 194, 329, 194, 329, 192, 330, 192, 330, 191, 331, 191, 331, 190, 332, 190, 332, 189, 333, 189, 333, 186, 334, 186, 334, 185, 335, 185, 335, 183, 336, 183, 336, 182, 337, 182, 337, 181, 339, 181, 339, 180, 340, 180, 340, 179, 343, 179, 343, 178, 349, 178, 349, 179, 352, 179, 352, 180, 353, 180, 353, 181, 355, 181, 355, 182, 356, 182, 356, 183, 357, 183, 357, 185, 358, 185, 358, 186, 359, 186, 359, 189, 360, 189, 360, 194, 361, 194, 361, 197, 362, 197, 362, 207, 361, 207, 361, 233, 360, 233, 360, 253, 371, 253, 371, 313, 372, 313, 372, 362, 373, 362, 373, 365, 374, 365, 374, 366, 375, 366, 375, 367, 389, 367, 389, 370, 414, 370, 414, 371, 425, 371, 425, 372, 434, 372, 434, 373, 443, 373, 443, 374, 451, 374, 451, 375, 467, 375, 467, 376, 640, 376, 640, 0, 0, 0)
+
+[node name="Midground Sprite" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("5_j1huy")
+
+[node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_dbgv5")
+parallax = Vector2(-0.5, 0)
+
+[node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
+
+[node name="@CollisionPolygon2D@613313" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(228, 526, 218, 526, 218, 527, 204, 527, 204, 528, 193, 528, 193, 529, 185, 529, 185, 530, 178, 530, 178, 531, 170, 531, 170, 532, 160, 532, 160, 533, 146, 533, 146, 534, 132, 534, 132, 535, 119, 535, 119, 536, 107, 536, 107, 537, 95, 537, 95, 538, 43, 538, 43, 539, 35, 539, 35, 540, 0, 540, 0, 640, 640, 640, 640, 529, 627, 529, 627, 530, 585, 530, 585, 531, 570, 531, 570, 532, 522, 532, 522, 533, 504, 533, 504, 534, 329, 534, 329, 533, 319, 533, 319, 532, 310, 532, 310, 531, 300, 531, 300, 530, 286, 530, 286, 529, 267, 529, 267, 528, 254, 528, 254, 527, 246, 527, 246, 526, 238, 526, 238, 525, 228, 525)
+
+[node name="Foreground Sprite" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+texture = ExtResource("6_1yt1l")
+
+[node name="Player" parent="." instance=ExtResource("7_xw1e7")]
+position = Vector2(1, 38)
+
+[node name="Death Hit Area" type="Area2D" parent="."]
+position = Vector2(-1, 132)
+script = ExtResource("9_jkcwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Hit Area"]
+shape = SubResource("RectangleShape2D_gn2xd")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(0, 10.388)
+script = ExtResource("8_qk64w")
+target = NodePath("../Player")
+followSpeed = 10.0
+magnitude = 0.1
+
+[node name="Door" parent="." instance=ExtResource("10_mchid")]
+position = Vector2(70, 55)
+nextScene = ExtResource("11_omhms")

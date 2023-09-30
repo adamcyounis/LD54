@@ -61,7 +61,7 @@ func jump():
 	body.velocity.y = -jumpForce
 
 func check_coyote_jump():
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_accept"):
 		if time() < coyote_buffer:
 			jump()
 

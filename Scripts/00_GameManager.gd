@@ -6,6 +6,7 @@ static var singleton: GameManager
 
 var scene_to_load: PackedScene
 var currentScene
+var playerSpawnPosition: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	singleton = self
@@ -23,6 +24,10 @@ func _process(delta):
 
 static func set_player(_player: Player):
 	singleton.player = _player
+	singleton.playerSpawnPosition = _player.position
+
+static func respawn_player():
+	singleton.player.position = singleton.playerSpawnPosition
 
 func load_scene(_scene: PackedScene):
 	currentScene = _scene
