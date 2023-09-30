@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://drmepl3nm5p3l"]
 
-[ext_resource type="Script" path="res://Parallax.gd" id="1_skdxn"]
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_e6wm8"]
 [ext_resource type="Texture2D" uid="uid://cld7hqn4f3oxw" path="res://Sprites/Level Designs/Level 2/Level 2_background.png" id="2_cspdg"]
 [ext_resource type="Texture2D" uid="uid://c2aha3w5eako3" path="res://Sprites/Level Designs/Level 2/Level 2_midground.png" id="3_mrwxk"]
 [ext_resource type="Texture2D" uid="uid://cfp64j6wug2qh" path="res://Sprites/Level Designs/Level 2/Level 2_foreground.png" id="4_7qhki"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_f3gym"]
-[ext_resource type="Script" path="res://Follow.gd" id="6_fjfyl"]
-[ext_resource type="Script" path="res://Levels/Door.gd" id="7_j78yn"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_bttp8"]
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="7_5v3po"]
 [ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/click_to_move.tscn" id="8_4fr7l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur0sv"]
@@ -18,7 +18,7 @@
 [node name="Parallax Layers" type="Node2D" parent="Environment"]
 
 [node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
-script = ExtResource("1_skdxn")
+script = ExtResource("1_e6wm8")
 parallax = Vector2(1, 0)
 
 [node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
@@ -26,7 +26,7 @@ position = Vector2(-34, 5)
 texture = ExtResource("2_cspdg")
 
 [node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
-script = ExtResource("1_skdxn")
+script = ExtResource("1_e6wm8")
 parallax = Vector2(0, 0)
 
 [node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
@@ -41,7 +41,7 @@ texture = ExtResource("3_mrwxk")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
 position = Vector2(-18, -3)
-script = ExtResource("1_skdxn")
+script = ExtResource("1_e6wm8")
 parallax = Vector2(-1, 0)
 
 [node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
@@ -59,13 +59,13 @@ position = Vector2(-66, 61)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(0, 10.388)
-script = ExtResource("6_fjfyl")
+script = ExtResource("6_bttp8")
 target = NodePath("../Player")
 followSpeed = 20.0
 
 [node name="Right Door" type="Area2D" parent="."]
 position = Vector2(36, 65)
-script = ExtResource("7_j78yn")
+script = ExtResource("7_5v3po")
 nextScene = ExtResource("8_4fr7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Door"]

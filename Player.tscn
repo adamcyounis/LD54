@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://idxyan3q5dh5"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_2uhb6"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1t6e"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="2_0jsn0"]
 [ext_resource type="Script" path="res://Player States/PlayerGroundControl.gd" id="3_yiyx8"]
 [ext_resource type="Script" path="res://Player States/PlayerIdle.gd" id="4_k111r"]
@@ -16,7 +16,7 @@ size = Vector2(1, 14)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "wallSensors")]
 position = Vector2(0, 61)
-script = ExtResource("1_2uhb6")
+script = ExtResource("1_r1t6e")
 sprite = NodePath("Sprite2D")
 gravity = Vector2(0, 10)
 wallSensors = [NodePath("Area2D"), NodePath("Area2D2")]
