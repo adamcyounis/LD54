@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2ipxvd4j6c61"]
 
 [ext_resource type="Script" path="res://Parallax.gd" id="1_7p0hl"]
-[ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Parallax Test/Level 1/Level 1_background.png" id="2_cxb00"]
-[ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Parallax Test/Level 1/Level 1_midground.png" id="3_tjbpd"]
-[ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Parallax Test/Level 1/Level 1_foreground.png" id="4_tf2vu"]
+[ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Level Designs/Level 1/Level 1_background.png" id="2_cxb00"]
+[ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Level Designs/Level 1/Level 1_midground.png" id="3_tjbpd"]
+[ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Level Designs/Level 1/Level 1_foreground.png" id="4_tf2vu"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_rryoj"]
 [ext_resource type="Script" path="res://CameraPointCycle.gd" id="6_j7qgp"]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://4yas8a0hg7og"]
 
 [ext_resource type="Script" path="res://Parallax.gd" id="1_ufokw"]
-[ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Parallax Test/Level 1/Level 1_background.png" id="2_xn44d"]
-[ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Parallax Test/Level 1/Level 1_midground.png" id="3_ww5wa"]
-[ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Parallax Test/Level 1/Level 1_foreground.png" id="4_ntpu7"]
+[ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Level Designs/Level 1/Level 1_background.png" id="2_xn44d"]
+[ext_resource type="Texture2D" uid="uid://bdoo45a2hh70f" path="res://Sprites/Level Designs/Level 1/Level 1_midground.png" id="3_ww5wa"]
+[ext_resource type="Texture2D" uid="uid://btl7k2imb67rh" path="res://Sprites/Level Designs/Level 1/Level 1_foreground.png" id="4_ntpu7"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_wu3js"]
 [ext_resource type="Script" path="res://Follow.gd" id="6_yt2ng"]
 

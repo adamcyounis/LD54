@@ -6,6 +6,9 @@ class_name Player extends CharacterBody2D
 
 @export var gravity: Vector2
 
+@export var wallSensors: Array [Area2D]
+
+
 var xInput: float = 0.0; 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +33,16 @@ func _process(_delta):
 
 	machine.do()
 
+
 func _physics_process(_delta):
 	machine.physics_do()
 	velocity += gravity
 	move_and_slide()
+	var counter = 0
+	for sensor in wallSensors:
+		if sensor.get_overlapping_bodies().size()> 1:
+			counter += 1
+
+	if (counter >= 2):
+		#die
+		GameManager.singleton.player_died()

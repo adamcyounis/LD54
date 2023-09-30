@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl7k2imb67rh"
-path="res://.godot/imported/Level 1_foreground.png-4afdcb5b9e7e93f9d0db45382c66f2fd.ctex"
+uid="uid://v8uk7ytlvd4a"
+path="res://.godot/imported/Level 1_background.png-ed573417051d8ab35bf73a21ef23f62c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Parallax Test/Level 1/Level 1_foreground.png"
-dest_files=["res://.godot/imported/Level 1_foreground.png-4afdcb5b9e7e93f9d0db45382c66f2fd.ctex"]
+source_file="res://Sprites/Level Designs/Level 1/Level 1_background.png"
+dest_files=["res://.godot/imported/Level 1_background.png-ed573417051d8ab35bf73a21ef23f62c.ctex"]
 
 [params]
 
