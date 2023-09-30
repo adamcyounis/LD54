@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://idxyan3q5dh5"]
+[gd_scene load_steps=17 format=3 uid="uid://idxyan3q5dh5"]
 
 [ext_resource type="Script" path="res://BodyAndSoul.gd" id="1_ni6lb"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1t6e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="10_2u1ji"]
 [ext_resource type="Script" path="res://Fly.gd" id="10_x1r0k"]
 [ext_resource type="Script" path="res://SoulSpawn.gd" id="11_kftho"]
+[ext_resource type="Script" path="res://Levels/SoulDespawn.gd" id="12_sb3fs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwv1p"]
 radius = 4.01
@@ -82,13 +83,14 @@ shape = SubResource("RectangleShape2D_c38dy")
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
 texture = ExtResource("7_kw0mk")
 
-[node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "collider", "fly", "spawn")]
+[node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
 script = ExtResource("9_2ijyh")
 myBody = NodePath(".")
 mySprite = NodePath("Sprite2D")
 collider = NodePath("CollisionShape2D")
 fly = NodePath("Fly")
 spawn = NodePath("Spawn")
+despawn = NodePath("Despawn")
 
 [node name="Fly" type="Node" parent="StateMachine/Soul"]
 script = ExtResource("10_x1r0k")
@@ -100,7 +102,9 @@ script = ExtResource("11_kftho")
 spawnForce = 100.0
 playerPos = NodePath("../../Body")
 
-[node name="Despawn" type="Node" parent="StateMachine/Soul"]
+[node name="Despawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos")]
+script = ExtResource("12_sb3fs")
+playerPos = NodePath("../../Body")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Soul"]
 shape = SubResource("CircleShape2D_mr4e6")

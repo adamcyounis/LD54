@@ -7,7 +7,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	machine.setup_tree()
-	machine.set_state(soul)
+	machine.set_state(soul, true)
 	
 	#machine.set_state(body)
 	#set_soul(false)
@@ -17,13 +17,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	machine.do()
+
+	if(machine.state.isComplete):
+		if(machine.state == soul):
+			machine.set_state(body, true)
+
 	#on space bar, switch between body and soul
 	if(Input.is_action_just_pressed("ui_accept")):
 		if(machine.state == body):
 			machine.set_state(soul, true)
-		else:
-			machine.set_state(body, true)
-
 
 func _physics_process(_delta):
 	machine.physics_do()

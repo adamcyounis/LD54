@@ -25,14 +25,13 @@ func enter():
 func do():
 	super()
 
-	if state.complete:
+	if state.isComplete:
 		set_natural_state()
 
 	#set aircontrol if space button pressed
 	if airControl.is_inputting_jump() and myBody.is_on_floor():
 		airControl.shouldJump = true
 		set_state(airControl, true)
-
 
 func _physics_process(_delta):
 	if(!is_active_state()):

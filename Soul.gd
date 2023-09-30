@@ -5,13 +5,13 @@ class_name Soul extends State
 @export var collider: CollisionShape2D
 @export var fly: Fly
 @export var spawn: SoulSpawn
+@export var despawn: SoulDespawn
 
 func _ready():
 	super()
 	body = myBody
 	sprite = mySprite
 	setup_tree()
-	
 
 func enter():
 	super()
@@ -19,9 +19,16 @@ func enter():
 
 func do():
 	super()
-	
+	if(state.isComplete):
+		if(state == spawn):
+			set_state(fly, true)
+		elif(state == fly):
+			set_state(despawn, true)
+		elif(state == despawn):
+			complete()
 
 func _process(_delta):
+
 	if(is_active_state() && !body.visible):	
 		showMe(true)
 	elif(!is_active_state() && body.visible):

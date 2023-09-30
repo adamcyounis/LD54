@@ -7,14 +7,16 @@ func enter():
 	super()
 	body.global_position = playerPos.global_position
 	body.velocity = Vector2(0,-spawnForce)
-	
+
 func do():
-	#move body towards target
 	pass
 
 func physics_do():
 	body.move_and_slide()
 	body.velocity *=decay
+	if(body.velocity.length() < 10):
+		complete()
+
 
 func exit():
 	super()
