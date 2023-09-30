@@ -18,7 +18,6 @@ func _process(_delta):
 	if(stateTime() > interval):
 		Next()
 	
-	#print(stateTime())
 	global_position = lerp(global_position, targetPos, _delta*speed)
 
 

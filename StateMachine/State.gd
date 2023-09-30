@@ -67,3 +67,6 @@ func setup_tree():
 
 func time():
 	return Time.get_ticks_msec() - startTime
+
+func is_active_state():
+	return parentState.state == self

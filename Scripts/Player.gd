@@ -35,6 +35,9 @@ func do():
 
 
 func _physics_process(_delta):
+	if(!is_active_state()):
+		myBody.velocity.x *= 0.8
+		
 	myBody.velocity += gravity
 	myBody.move_and_slide()
 	var counter = 0

@@ -21,19 +21,10 @@ func _process(_delta):
 	if(Input.is_action_just_pressed("ui_accept")):
 		if(machine.state == body):
 			machine.set_state(soul, true)
-			set_soul(true)
 		else:
 			machine.set_state(body, true)
-			set_soul(false)
 
 
 func _physics_process(_delta):
 	machine.physics_do()
 
-func set_soul(show: bool):
-	if(show):
-		soul.show()
-		soul.collider.disabled = false
-	else:
-		soul.hide()
-		soul.collider.disabled = true

@@ -4,6 +4,7 @@ class_name Soul extends State
 @export var mySprite: Sprite2D
 @export var collider: CollisionShape2D
 @export var fly: Fly
+@export var spawn: SoulSpawn
 
 func _ready():
 	super()
@@ -11,25 +12,40 @@ func _ready():
 	sprite = mySprite
 	setup_tree()
 	
+
+func enter():
+	super()
+	set_state(spawn, true)
+
 func do():
 	super()
 	
 
 func _process(_delta):
+	if(is_active_state() && !body.visible):	
+		showMe(true)
+	elif(!is_active_state() && body.visible):
+		showMe(false)
+
+	if(state == fly && collider.disabled):
+		collideMe(true)
+	elif(state != fly and !collider.disabled):
+		collideMe(false)
+
 	#toggleProcess()
 	#print(collider.is_physics_processing_internal())
 	pass 
 
-func toggleProcess():
-	if(body != null):
-		
-		if body.process_mode == PROCESS_MODE_INHERIT  and parentState.state != self:
-			#body.set_process(false)
-			collider.set_physics_process(false)
-		elif body.process_mode == PROCESS_MODE_DISABLED and parentState.state == self:
-			#body.set_process(true)
-			collider.set_physics_process(true)
 
-func enter():
-	super()
-	set_state(fly)
+
+func showMe(show: bool):
+	if(show):
+		body.show()
+	else:
+		body.hide()
+	
+func collideMe(collide: bool):
+	if(collide):
+		collider.disabled = false
+	else:
+		collider.disabled = true

@@ -15,7 +15,6 @@ func enter():
 
 func do():
 	super()
-	print("ground control")
 	var l = Input.get_action_strength("ui_left")
 	var r = Input.get_action_strength("ui_right")
 	xInput = r-l
