@@ -27,7 +27,7 @@ func _process(_delta):
 			machine.set_state(airControl)
 
 	#set aircontrol if space button pressed
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
+	if airControl.is_inputting_jump() and is_on_floor():
 		airControl.shouldJump = true
 		machine.set_state(airControl, true)
 

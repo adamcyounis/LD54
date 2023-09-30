@@ -7,6 +7,8 @@ class_name PlayerJump extends State
 @export var coyote_buffer: float = 100
 var xInput: float = 0.0; 
 var shouldJump: bool = false
+
+var jumpAction: String = "ui_up"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -61,9 +63,12 @@ func jump():
 	body.velocity.y = -jumpForce
 
 func check_coyote_jump():
-	if Input.is_action_just_pressed("ui_accept"):
+	if is_inputting_jump():
 		if time() < coyote_buffer:
 			jump()
+
+func is_inputting_jump():
+	return Input.is_action_pressed(jumpAction)
 
 
 func exit():

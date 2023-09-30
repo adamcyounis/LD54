@@ -16,7 +16,7 @@ fill_from = Vector2(0.611111, 0.538462)
 [node name="GameManager" type="Node2D"]
 position = Vector2(1, 1)
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_3stm7"), ExtResource("3_tpla6"), ExtResource("4_1pj80")])
+scenes = Array[PackedScene]([ExtResource("2_3stm7"), ExtResource("2_sxqsy"), ExtResource("3_tpla6"), ExtResource("4_1pj80")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

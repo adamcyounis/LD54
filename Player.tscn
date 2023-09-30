@@ -8,21 +8,22 @@
 [ext_resource type="Script" path="res://Player States/PlayerJump.gd" id="6_8dal4"]
 [ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(6, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwv1p"]
+radius = 4.01
+height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38dy"]
-size = Vector2(1, 14)
+size = Vector2(1, 11)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "wallSensors")]
-position = Vector2(0, 61)
+position = Vector2(1, 61)
 script = ExtResource("1_r1t6e")
 sprite = NodePath("Sprite2D")
 gravity = Vector2(0, 10)
 wallSensors = [NodePath("Area2D"), NodePath("Area2D2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+shape = SubResource("CapsuleShape2D_fwv1p")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_0jsn0")
@@ -55,11 +56,11 @@ texture = ExtResource("7_kw0mk")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, 0)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-2.5, 0)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_c38dy")
