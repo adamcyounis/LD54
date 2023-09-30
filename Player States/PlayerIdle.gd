@@ -7,7 +7,7 @@ func enter():
 	super()
 	sprite.set_texture(texture)
 	sprite.frame = 0
-	sprite.hframes = 6
+	sprite.hframes = 1
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

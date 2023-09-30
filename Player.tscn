@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://idxyan3q5dh5"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_2uhb6"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="2_0jsn0"]
+[ext_resource type="Script" path="res://Player States/PlayerGroundControl.gd" id="3_yiyx8"]
+[ext_resource type="Script" path="res://Player States/PlayerIdle.gd" id="4_k111r"]
+[ext_resource type="Script" path="res://Player States/PlayerRun.gd" id="5_dlk8c"]
+[ext_resource type="Script" path="res://Player States/PlayerJump.gd" id="6_8dal4"]
+[ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 16)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+position = Vector2(0, 61)
+script = ExtResource("1_2uhb6")
+sprite = NodePath("Sprite2D")
+gravity = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_0jsn0")
+
+[node name="PlayerGroundControl" type="Node" parent="StateMachine" node_paths=PackedStringArray("run", "idle")]
+script = ExtResource("3_yiyx8")
+run = NodePath("PlayerRun")
+idle = NodePath("PlayerIdle")
+
+[node name="PlayerIdle" type="Node" parent="StateMachine/PlayerGroundControl"]
+script = ExtResource("4_k111r")
+texture = ExtResource("7_kw0mk")
+
+[node name="PlayerRun" type="Node" parent="StateMachine/PlayerGroundControl"]
+script = ExtResource("5_dlk8c")
+texture = ExtResource("7_kw0mk")
+speed = 70.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerGroundControl/PlayerRun"]
+
+[node name="PlayerJump" type="Node" parent="StateMachine"]
+script = ExtResource("6_8dal4")
+jumpForce = 150.0
+texture = ExtResource("7_kw0mk")
+speed = 70.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_kw0mk")

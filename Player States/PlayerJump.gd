@@ -13,7 +13,7 @@ func _ready():
 
 func enter():
 	super()
-	sprite.hframes = 14
+	sprite.hframes = 1
 	sprite.set_texture(texture)
 	if shouldJump:
 		jump()
@@ -23,7 +23,7 @@ func do():
 	super()
 	check_x_input()
 	check_coyote_jump()
-	setFrame()
+	#setFrame()
 	if body.is_on_floor() and body.velocity.y >= 0:
 		complete()
 

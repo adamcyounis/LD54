@@ -14,8 +14,6 @@ func _ready():
 
 func _process(delta):
 	global_position = lerp(global_position, targetPos, 0.1)
-	print(targetPos)
-
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

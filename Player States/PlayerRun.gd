@@ -16,7 +16,7 @@ func enter():
 	super()
 	check_x_input()
 	sprite.texture = texture
-	sprite.hframes = 8
+	sprite.hframes = 1
 
 func do():
 	super()
@@ -57,5 +57,5 @@ func update_frame():
 	sprite.frame = (int(sec*fps)) % sprite.hframes;
 
 func playStepSound():
-	audio_stream_player.play()
+	#audio_stream_player.play()
 	pass
