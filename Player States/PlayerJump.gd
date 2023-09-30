@@ -68,7 +68,7 @@ func check_coyote_jump():
 			jump()
 
 func is_inputting_jump():
-	return Input.is_action_pressed(jumpAction)
+	return Input.is_action_just_pressed(jumpAction)
 
 
 func exit():

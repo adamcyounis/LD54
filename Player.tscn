@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://idxyan3q5dh5"]
+[gd_scene load_steps=15 format=3 uid="uid://idxyan3q5dh5"]
 
+[ext_resource type="Script" path="res://BodyAndSoul.gd" id="1_ni6lb"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1t6e"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="2_0jsn0"]
 [ext_resource type="Script" path="res://Player States/PlayerGroundControl.gd" id="3_yiyx8"]
@@ -7,6 +8,9 @@
 [ext_resource type="Script" path="res://Player States/PlayerRun.gd" id="5_dlk8c"]
 [ext_resource type="Script" path="res://Player States/PlayerJump.gd" id="6_8dal4"]
 [ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
+[ext_resource type="Script" path="res://Soul.gd" id="9_2ijyh"]
+[ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="10_2u1ji"]
+[ext_resource type="Script" path="res://Fly.gd" id="10_x1r0k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwv1p"]
 radius = 4.01
@@ -15,52 +19,82 @@ height = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38dy"]
 size = Vector2(1, 11)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "wallSensors")]
-position = Vector2(1, 61)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mr4e6"]
+radius = 4.0
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("machine", "body", "soul")]
+script = ExtResource("1_ni6lb")
+machine = NodePath("StateMachine")
+body = NodePath("StateMachine/Body")
+soul = NodePath("StateMachine/Soul")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("2_0jsn0")
+
+[node name="Body" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "wallSensors")]
 script = ExtResource("1_r1t6e")
-sprite = NodePath("Sprite2D")
+myBody = NodePath(".")
+mySprite = NodePath("Sprite2D")
 gravity = Vector2(0, 10)
 wallSensors = [NodePath("Area2D"), NodePath("Area2D2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body"]
 shape = SubResource("CapsuleShape2D_fwv1p")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="StateMachine/Body"]
 script = ExtResource("2_0jsn0")
 
-[node name="PlayerGroundControl" type="Node" parent="StateMachine" node_paths=PackedStringArray("run", "idle")]
+[node name="PlayerGroundControl" type="Node" parent="StateMachine/Body/StateMachine" node_paths=PackedStringArray("run", "idle")]
 script = ExtResource("3_yiyx8")
 run = NodePath("PlayerRun")
 idle = NodePath("PlayerIdle")
 
-[node name="PlayerIdle" type="Node" parent="StateMachine/PlayerGroundControl"]
+[node name="PlayerIdle" type="Node" parent="StateMachine/Body/StateMachine/PlayerGroundControl"]
 script = ExtResource("4_k111r")
 texture = ExtResource("7_kw0mk")
 
-[node name="PlayerRun" type="Node" parent="StateMachine/PlayerGroundControl"]
+[node name="PlayerRun" type="Node" parent="StateMachine/Body/StateMachine/PlayerGroundControl"]
 script = ExtResource("5_dlk8c")
 texture = ExtResource("7_kw0mk")
 speed = 70.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerGroundControl/PlayerRun"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Body/StateMachine/PlayerGroundControl/PlayerRun"]
 
-[node name="PlayerJump" type="Node" parent="StateMachine"]
+[node name="PlayerJump" type="Node" parent="StateMachine/Body/StateMachine"]
 script = ExtResource("6_8dal4")
 jumpForce = 150.0
 texture = ExtResource("7_kw0mk")
 speed = 70.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("7_kw0mk")
+[node name="Area2D" type="Area2D" parent="StateMachine/Body"]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body/Area2D"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="StateMachine/Body"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body/Area2D2"]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_c38dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
+texture = ExtResource("7_kw0mk")
+
+[node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "collider", "fly")]
+script = ExtResource("9_2ijyh")
+myBody = NodePath(".")
+mySprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
+fly = NodePath("Fly")
+
+[node name="Fly" type="Node" parent="StateMachine/Soul"]
+script = ExtResource("10_x1r0k")
+maxSpeed = 150.0
+decay = 0.93
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Soul"]
+shape = SubResource("CircleShape2D_mr4e6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StateMachine/Soul"]
+texture = ExtResource("10_2u1ji")

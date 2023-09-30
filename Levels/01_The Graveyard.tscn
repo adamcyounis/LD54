@@ -62,7 +62,7 @@ polygon = PackedVector2Array(228, 526, 218, 526, 218, 527, 204, 527, 204, 528, 1
 texture = ExtResource("6_1yt1l")
 
 [node name="Player" parent="." instance=ExtResource("7_xw1e7")]
-position = Vector2(1, 38)
+position = Vector2(1, 39.72)
 
 [node name="Death Hit Area" type="Area2D" parent="."]
 position = Vector2(-1, 132)
@@ -74,10 +74,12 @@ shape = SubResource("RectangleShape2D_gn2xd")
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(0, 10.388)
 script = ExtResource("8_qk64w")
-target = NodePath("../Player")
+target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
 magnitude = 0.1
 
 [node name="Door" parent="." instance=ExtResource("10_mchid")]
 position = Vector2(70, 55)
 nextScene = ExtResource("11_omhms")
+
+[editable path="Player"]

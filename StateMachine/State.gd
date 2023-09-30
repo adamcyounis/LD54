@@ -16,6 +16,7 @@ signal physics_do_signal
 func _ready():
 	for child in get_children():
 		if child is State:
+			
 			children.append(child)
 			child.setup_parent(self)
 			
@@ -53,8 +54,11 @@ func setup_parent(newState: State):
 	parentState = newState
 
 func setup_core():
-	sprite = parentState.sprite
-	body = parentState.body
+	if(parentState.sprite != null):
+		sprite = parentState.sprite
+	
+	if(parentState.body != null):
+		body = parentState.body
 
 func setup_tree():
 	for child in children:
