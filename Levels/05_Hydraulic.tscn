@@ -65,6 +65,7 @@ texture = ExtResource("4_3rt1j")
 
 [node name="Player" parent="." instance=ExtResource("5_dpdyd")]
 position = Vector2(-71, 56)
+hasSoul = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(0, 33.09)

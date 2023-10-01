@@ -5,8 +5,7 @@ class_name SoulDespawn extends State
 func enter():
 	super()
 	body.velocity = Vector2(0,0)
-	play_sound()
-	
+
 func do():
 	#lerp towards playerPos
 	body.global_position = lerp(body.global_position, playerPos.global_position, 0.12)

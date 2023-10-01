@@ -29,6 +29,7 @@ func do():
 		if(state == spawn):
 			set_state(fly, true)
 		elif(state == fly):
+			despawn.play_sound()
 			set_state(despawn, true)
 		elif(state == despawn):
 			complete()
@@ -36,6 +37,7 @@ func do():
 	
 
 func dismiss():
+	despawn.play_sound()
 	set_state(despawn, true)
 
 func _process(_delta):

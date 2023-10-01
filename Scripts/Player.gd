@@ -9,6 +9,7 @@ class_name Player extends State
 @export var wallSensors: Array [Area2D]
 
 @export var kneel: PlayerIdle
+@export var visibility_check: VisibleOnScreenNotifier2D
 var xInput: float = 0.0; 
 var mat : Material
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +37,7 @@ func do():
 		airControl.shouldJump = true
 		set_state(airControl, true)
 
+
 func _physics_process(_delta):
 	if(!is_active_state()):
 		myBody.velocity.x *= 0.8
@@ -50,7 +52,7 @@ func _physics_process(_delta):
 	if (counter >= 1):
 		#die
 		GameManager.singleton.player_died()
-
+	
 
 func physics_do():
 	super()
@@ -60,3 +62,6 @@ func set_natural_state():
 		set_state(groundControl)
 	else :
 		set_state(airControl)
+
+func on_screen_exit():
+	GameManager.singleton.player_died()

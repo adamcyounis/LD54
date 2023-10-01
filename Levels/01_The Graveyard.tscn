@@ -85,7 +85,7 @@ shape = SubResource("RectangleShape2D_gn2xd")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("8_qk64w")
-target = NodePath("../Sprite2D")
+target = NodePath("../Intro Soul")
 followSpeed = 10.0
 magnitude = 0.2
 
@@ -93,7 +93,8 @@ magnitude = 0.2
 position = Vector2(70, 55)
 nextScene = ExtResource("11_omhms")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Intro Soul" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("16_lrwc7")
 
 [editable path="Player"]

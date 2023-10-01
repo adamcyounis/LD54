@@ -20,6 +20,7 @@ func _ready():
 		body.set_state(body.kneel, true)
 
 	mat = body.sprite.material
+	body.visibility_check.screen_exited.connect(return_to_player)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
@@ -56,9 +57,7 @@ func set_arrow_target():
 func handle_soul_switching_actions():
 	
 	if(Input.is_action_just_pressed("return-to-player") and hasSoul and soul.state != soul.despawn):
-		machine.set_state(soul)
-		body.set_state(body.kneel, true)
-		soul.set_state(soul.despawn, true)
+		return_to_player()
 
 	#on space bar, switch between body and soul
 	if(Input.is_action_just_pressed("ui_accept") and hasSoul):
@@ -74,3 +73,8 @@ func handle_soul_switching_actions():
 		machine.set_state(body, true)
 		
 
+func return_to_player():
+	machine.set_state(soul)
+	body.set_state(body.kneel, true)
+	soul.set_state(soul.despawn, true)
+	soul.despawn.play_sound()
