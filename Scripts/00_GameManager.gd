@@ -22,6 +22,8 @@ func _ready():
 	#load first scene
 	var packedScene: PackedScene = scenes[0]
 	load_scene(scenes[0])
+	sceneFader.play("DownEnd")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(scene_to_load != null):

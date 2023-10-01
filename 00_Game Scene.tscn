@@ -165,8 +165,9 @@ _data = {
 }
 
 [node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container", "sfxPlayer")]
+position = Vector2(-1, -1)
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_nk7th"), ExtResource("2_og772"), ExtResource("2_sxqsy"), ExtResource("11_npynp"), ExtResource("12_yj02t"), ExtResource("2_hsw4w"), ExtResource("4_jgj4w"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2")])
+scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_nk7th"), ExtResource("12_yj02t"), ExtResource("2_og772"), ExtResource("11_npynp"), ExtResource("2_hsw4w"), ExtResource("4_jgj4w"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2")])
 sceneFader = NodePath("AnimationPlayer")
 container = NodePath("Container")
 sfxPlayer = NodePath("SFX player")
@@ -196,7 +197,10 @@ stream = ExtResource("15_1foit")
 volume_db = -8.0
 autoplay = true
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." node_paths=PackedStringArray("label", "texture")]
+script = ExtResource("18_6o0rw")
+label = NodePath("Label")
+texture = NodePath("TextureRect")
 
 [node name="Label" type="Label" parent="CanvasLayer2"]
 offset_left = 12.0
@@ -206,12 +210,11 @@ offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("17_lffea")
 theme_override_font_sizes/font_size = 6
 text = "chalices collected"
-script = ExtResource("18_6o0rw")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
-offset_left = -10.0
+offset_left = -11.0
 offset_top = -9.0
-offset_right = 30.0
+offset_right = 29.0
 offset_bottom = 31.0
 texture = ExtResource("19_408k2")
 stretch_mode = 2

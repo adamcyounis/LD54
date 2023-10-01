@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c58w6b2wnmpby"]
+[gd_scene load_steps=16 format=3 uid="uid://c58w6b2wnmpby"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_ljyr6"]
 [ext_resource type="Texture2D" uid="uid://cwq0rj8klsm3u" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_background.png" id="2_nqx4g"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://Levels/Door2.gd" id="10_5duhg"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_tupws"]
 [ext_resource type="Texture2D" uid="uid://deyakr5m6odab" path="res://Sprites/Lantern/Lantern_layer 1.png" id="11_r45q7"]
+[ext_resource type="FontFile" uid="uid://clmbimsfesb3e" path="res://Levels/TinyFont2.ttf" id="12_bxutv"]
+[ext_resource type="Script" path="res://Levels/ChallicesCollected.gd" id="12_fblxi"]
+[ext_resource type="Texture2D" uid="uid://cvhti820p1ppl" path="res://Sprites/Chalice-Chalice.png" id="13_2rr5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdggo"]
 size = Vector2(231, 45)
@@ -108,5 +111,23 @@ shape = SubResource("RectangleShape2D_ur0sv")
 z_index = -1
 position = Vector2(-14, -5)
 texture = ExtResource("11_r45q7")
+
+[node name="Label" type="Label" parent="Door"]
+offset_left = -104.0
+offset_top = 33.0
+offset_right = -31.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("12_bxutv")
+theme_override_font_sizes/font_size = 6
+text = "chalices collected"
+script = ExtResource("12_fblxi")
+
+[node name="TextureRect" type="TextureRect" parent="Door"]
+offset_left = -125.0
+offset_top = 21.0
+offset_right = -85.0
+offset_bottom = 61.0
+texture = ExtResource("13_2rr5l")
+stretch_mode = 2
 
 [editable path="Player"]
