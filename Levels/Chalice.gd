@@ -13,10 +13,14 @@ func _process(delta):
 	if(is_instance_valid(sprite)):
 		update_sprite()
 
+	#check if our path is in gamemanager.singleton.chalices
+	if(GameManager.singleton.chalices.has(get_hash())):
+		queue_free()
+
 func on_body_entered(body):
 	#check to see if the body belongs to GameManager.singleton.player
 	if body == GameManager.singleton.player.myBody:
-		GameManager.singleton.add_chalice(self)
+		GameManager.singleton.add_chalice(get_hash())
 		queue_free()		
 
 
@@ -25,3 +29,5 @@ func update_sprite():
 	var sec = millis/1000.0
 	sprite.frame = (int(sec*fps)) % sprite.hframes;
 	
+func get_hash():
+	return owner.scene_file_path + str(get_path())

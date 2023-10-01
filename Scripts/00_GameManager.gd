@@ -3,6 +3,7 @@ class_name GameManager extends Node2D
 @export var scenes: Array [PackedScene]
 @export var sceneFader: AnimationPlayer
 @export var container: Node
+@export var sfxPlayer : AudioStreamPlayer
 var player : Player
 var bodyAndSoul : BodyAndSoul
 
@@ -78,9 +79,9 @@ func SceneIn(d: bool):
 
 
 func add_chalice(chalice):
-	var n = chalice.get_path()
-	if n not in chalices:
-		chalices.append(n)
+	sfxPlayer.play()	
+	if chalice not in chalices:
+		chalices.append(chalice)
 
 
 func get_chalice_count():

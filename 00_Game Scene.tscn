@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bk4ptr42f61f1"]
+[gd_scene load_steps=26 format=3 uid="uid://bk4ptr42f61f1"]
 
 [ext_resource type="Script" path="res://Scripts/00_GameManager.gd" id="1_1ig5f"]
 [ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="2_3stm7"]
@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://bn73vlwykc1yx" path="res://Levels/Ascent.tscn" id="11_npynp"]
 [ext_resource type="PackedScene" uid="uid://c58w6b2wnmpby" path="res://Levels/Thank You.tscn" id="12_yj02t"]
 [ext_resource type="AudioStream" uid="uid://bbmvtoputgndq" path="res://Sound/LD54 Intro.ogg" id="15_1foit"]
+[ext_resource type="AudioStream" uid="uid://bjpt237i5rhe7" path="res://Sound/twinkle.ogg" id="15_d00yp"]
+[ext_resource type="FontFile" uid="uid://clmbimsfesb3e" path="res://Levels/TinyFont2.ttf" id="17_lffea"]
+[ext_resource type="Script" path="res://ChaliceCounter.gd" id="18_6o0rw"]
+[ext_resource type="Texture2D" uid="uid://cvhti820p1ppl" path="res://Sprites/Chalice-Chalice.png" id="19_408k2"]
 
 [sub_resource type="Animation" id="Animation_o6n0n"]
 resource_name = "DownEnd"
@@ -160,11 +164,12 @@ _data = {
 "RESET": SubResource("Animation_0yc7w")
 }
 
-[node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container")]
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container", "sfxPlayer")]
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("11_npynp"), ExtResource("2_og772"), ExtResource("12_yj02t"), ExtResource("2_nk7th"), ExtResource("2_hsw4w"), ExtResource("4_jgj4w"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2")])
+scenes = Array[PackedScene]([ExtResource("2_nk7th"), ExtResource("2_og772"), ExtResource("2_sxqsy"), ExtResource("11_npynp"), ExtResource("12_yj02t"), ExtResource("2_hsw4w"), ExtResource("4_jgj4w"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2")])
 sceneFader = NodePath("AnimationPlayer")
 container = NodePath("Container")
+sfxPlayer = NodePath("SFX player")
 
 [node name="Container" type="Node" parent="."]
 
@@ -182,6 +187,31 @@ libraries = {
 "": SubResource("AnimationLibrary_iv48i")
 }
 
+[node name="SFX player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_d00yp")
+volume_db = -8.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_1foit")
+volume_db = -8.0
 autoplay = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 85.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("17_lffea")
+theme_override_font_sizes/font_size = 6
+text = "chalices collected"
+script = ExtResource("18_6o0rw")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+offset_left = -10.0
+offset_top = -9.0
+offset_right = 30.0
+offset_bottom = 31.0
+texture = ExtResource("19_408k2")
+stretch_mode = 2
