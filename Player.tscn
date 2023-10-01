@@ -140,7 +140,7 @@ decay = 0.93
 
 [node name="Spawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos", "audio")]
 script = ExtResource("11_kftho")
-spawnForce = 100.0
+spawnForce = 75.0
 playerPos = NodePath("../../Body")
 audio = NodePath("AudioStreamPlayer")
 
