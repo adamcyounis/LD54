@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://c58w6b2wnmpby"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_ljyr6"]
+[ext_resource type="Texture2D" uid="uid://cwq0rj8klsm3u" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_background.png" id="2_nqx4g"]
+[ext_resource type="Texture2D" uid="uid://dsvayfdbmvxi5" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_midground.png" id="3_em3ot"]
+[ext_resource type="Texture2D" uid="uid://c82q053lqjxhy" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_text.png" id="4_5ew30"]
+[ext_resource type="Texture2D" uid="uid://bj4fatekd0ufc" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_foreground.png" id="4_ar4y8"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_b2af1"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_20xpr"]
+[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_666bg"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_54ouk"]
+[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_tupws"]
+[ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/01_The Graveyard.tscn" id="11_hryf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
+size = Vector2(2, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdggo"]
+size = Vector2(231, 45)
+
+[node name="Seance" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Parallax Layers" type="Node2D" parent="Environment"]
+
+[node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+position = Vector2(1, 0)
+script = ExtResource("1_ljyr6")
+parallax = Vector2(0.5, 0.5)
+
+[node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+z_index = -2
+texture = ExtResource("2_nqx4g")
+
+[node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
+position = Vector2(0, -1)
+script = ExtResource("1_ljyr6")
+parallax = Vector2(0, 0)
+
+[node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
+
+[node name="@CollisionPolygon2D@86096" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(0, 640, 640, 640, 640, 313, 489, 313, 489, 315, 488, 315, 488, 317, 487, 317, 487, 318, 486, 318, 486, 319, 485, 319, 485, 320, 483, 320, 483, 321, 458, 321, 458, 320, 446, 320, 446, 325, 445, 325, 445, 327, 444, 327, 444, 328, 443, 328, 443, 329, 441, 329, 441, 330, 400, 330, 400, 329, 379, 329, 379, 331, 381, 331, 381, 336, 382, 336, 382, 339, 417, 339, 417, 340, 434, 340, 434, 339, 445, 339, 445, 340, 447, 340, 447, 341, 448, 341, 448, 342, 449, 342, 449, 343, 450, 343, 450, 344, 451, 344, 451, 345, 452, 345, 452, 349, 453, 349, 453, 353, 452, 353, 452, 354, 451, 354, 451, 360, 450, 360, 450, 361, 449, 361, 449, 362, 448, 362, 448, 363, 447, 363, 447, 364, 444, 364, 444, 365, 436, 365, 436, 366, 432, 366, 432, 367, 427, 367, 427, 368, 369, 368, 369, 369, 346, 369, 346, 370, 347, 370, 347, 379, 316, 379, 316, 380, 317, 380, 317, 387, 286, 387, 286, 388, 287, 388, 287, 391, 286, 391, 286, 392, 285, 392, 285, 393, 284, 393, 284, 394, 283, 394, 283, 395, 251, 395, 251, 394, 250, 394, 250, 393, 249, 393, 249, 392, 248, 392, 248, 391, 247, 391, 247, 385, 246, 385, 246, 372, 245, 372, 245, 368, 246, 368, 246, 359, 247, 359, 247, 323, 215, 323, 215, 322, 212, 322, 212, 321, 210, 321, 210, 320, 209, 320, 209, 319, 208, 319, 208, 318, 207, 318, 207, 317, 200, 317, 200, 316, 192, 316, 192, 315, 183, 315, 183, 314, 177, 314, 177, 313, 0, 313)
+
+[node name="@CollisionPolygon2D@86097" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(446, 319, 445, 319, 445, 320, 446, 320)
+
+[node name="Level2Midground" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("3_em3ot")
+
+[node name="Text" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("4_5ew30")
+
+[node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
+position = Vector2(0, -1)
+script = ExtResource("1_ljyr6")
+parallax = Vector2(-0.5, -0.5)
+
+[node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
+
+[node name="@CollisionPolygon2D@86098" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(221, 396, 218, 396, 218, 397, 217, 397, 217, 398, 215, 398, 215, 399, 213, 399, 213, 400, 209, 400, 209, 401, 202, 401, 202, 402, 198, 402, 198, 403, 194, 403, 194, 404, 190, 404, 190, 405, 184, 405, 184, 406, 179, 406, 179, 407, 175, 407, 175, 408, 171, 408, 171, 409, 166, 409, 166, 410, 160, 410, 160, 411, 156, 411, 156, 412, 151, 412, 151, 413, 147, 413, 147, 414, 143, 414, 143, 415, 139, 415, 139, 416, 134, 416, 134, 417, 130, 417, 130, 418, 126, 418, 126, 419, 122, 419, 122, 420, 117, 420, 117, 421, 113, 421, 113, 422, 109, 422, 109, 423, 105, 423, 105, 424, 101, 424, 101, 425, 97, 425, 97, 426, 93, 426, 93, 427, 89, 427, 89, 428, 86, 428, 86, 429, 82, 429, 82, 430, 78, 430, 78, 431, 74, 431, 74, 432, 70, 432, 70, 433, 67, 433, 67, 434, 64, 434, 64, 435, 61, 435, 61, 436, 57, 436, 57, 437, 54, 437, 54, 438, 51, 438, 51, 439, 48, 439, 48, 440, 44, 440, 44, 441, 40, 441, 40, 442, 36, 442, 36, 443, 32, 443, 32, 444, 28, 444, 28, 445, 24, 445, 24, 446, 20, 446, 20, 447, 16, 447, 16, 448, 12, 448, 12, 449, 8, 449, 8, 450, 4, 450, 4, 451, 0, 451, 0, 640, 640, 640, 640, 455, 636, 455, 636, 454, 634, 454, 634, 452, 628, 452, 628, 451, 609, 451, 609, 450, 602, 450, 602, 449, 595, 449, 595, 448, 587, 448, 587, 447, 582, 447, 582, 446, 578, 446, 578, 445, 573, 445, 573, 444, 567, 444, 567, 443, 563, 443, 563, 442, 559, 442, 559, 441, 555, 441, 555, 440, 552, 440, 552, 439, 548, 439, 548, 438, 544, 438, 544, 437, 540, 437, 540, 436, 537, 436, 537, 435, 533, 435, 533, 434, 530, 434, 530, 433, 526, 433, 526, 432, 523, 432, 523, 431, 521, 431, 521, 430, 519, 430, 519, 429, 515, 429, 515, 428, 511, 428, 511, 427, 508, 427, 508, 426, 504, 426, 504, 425, 500, 425, 500, 424, 496, 424, 496, 423, 493, 423, 493, 422, 489, 422, 489, 421, 486, 421, 486, 420, 482, 420, 482, 419, 478, 419, 478, 418, 474, 418, 474, 417, 471, 417, 471, 416, 467, 416, 467, 415, 464, 415, 464, 414, 460, 414, 460, 413, 457, 413, 457, 412, 454, 412, 454, 411, 449, 411, 449, 410, 444, 410, 444, 409, 441, 409, 441, 408, 438, 408, 438, 407, 436, 407, 436, 406, 433, 406, 433, 405, 430, 405, 430, 404, 427, 404, 427, 403, 424, 403, 424, 402, 421, 402, 421, 401, 418, 401, 418, 400, 415, 400, 415, 399, 413, 399, 413, 398, 410, 398, 410, 397, 408, 397, 408, 396, 406, 396, 406, 395, 403, 395, 403, 396, 402, 396, 402, 397, 401, 397, 401, 398, 400, 398, 400, 399, 399, 399, 399, 400, 397, 400, 397, 401, 396, 401, 396, 402, 395, 402, 395, 403, 393, 403, 393, 404, 391, 404, 391, 405, 390, 405, 390, 406, 389, 406, 389, 407, 387, 407, 387, 408, 385, 408, 385, 409, 374, 409, 374, 408, 372, 408, 372, 407, 371, 407, 371, 406, 370, 406, 370, 405, 369, 405, 369, 404, 366, 404, 366, 403, 363, 403, 363, 404, 353, 404, 353, 405, 346, 405, 346, 406, 335, 406, 335, 407, 323, 407, 323, 408, 315, 408, 315, 409, 306, 409, 306, 410, 298, 410, 298, 411, 274, 411, 274, 412, 263, 412, 263, 413, 256, 413, 256, 412, 254, 412, 254, 411, 253, 411, 253, 410, 252, 410, 252, 409, 250, 409, 250, 408, 248, 408, 248, 407, 247, 407, 247, 406, 246, 406, 246, 405, 244, 405, 244, 404, 242, 404, 242, 403, 240, 403, 240, 402, 239, 402, 239, 401, 237, 401, 237, 400, 236, 400, 236, 399, 235, 399, 235, 398, 234, 398, 234, 397, 232, 397, 232, 396, 231, 396, 231, 395, 221, 395)
+
+[node name="@CollisionPolygon2D@86099" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(4, 403, 5, 403, 5, 402, 4, 402)
+
+[node name="@CollisionPolygon2D@86100" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(0, 404, 1, 404, 1, 403, 0, 403)
+
+[node name="Level2Foreground" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+z_index = 1
+texture = ExtResource("4_ar4y8")
+
+[node name="Player" parent="." instance=ExtResource("5_b2af1")]
+position = Vector2(-60, 65)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(-3, 62)
+script = ExtResource("6_20xpr")
+target = NodePath("../Player/StateMachine/Soul")
+followSpeed = 10.0
+magnitude = 0.3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+script = ExtResource("7_666bg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gorgf")
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(-5, 131)
+collision_mask = 5
+script = ExtResource("10_tupws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(21.5, 12.5)
+shape = SubResource("RectangleShape2D_vdggo")
+
+[node name="Door" parent="." instance=ExtResource("9_54ouk")]
+position = Vector2(82, 35)
+nextScene = ExtResource("11_hryf7")
+
+[editable path="Player"]

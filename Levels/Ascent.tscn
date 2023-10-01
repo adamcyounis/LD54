@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bn73vlwykc1yx"]
+[gd_scene load_steps=14 format=3 uid="uid://bn73vlwykc1yx"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_rmvca"]
 [ext_resource type="Texture2D" uid="uid://dsn4pkhtmk3jj" path="res://Sprites/Level Designs/Level 10 - Ascent/Level 10 - Ascent_background.png" id="2_0vnct"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="8_l10dv"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_xjqyt"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_44geh"]
+[ext_resource type="PackedScene" uid="uid://c58w6b2wnmpby" path="res://Levels/Thank You.tscn" id="10_ib5ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
 size = Vector2(2, 20)
@@ -89,11 +90,16 @@ script = ExtResource("7_sv5rp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gorgf")
 
+[node name="Chalice2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_l10dv")]
+position = Vector2(-42, -151)
+sprite = NodePath("../Chalice/Sprite2D")
+
 [node name="Chalice" parent="." instance=ExtResource("8_l10dv")]
-position = Vector2(-18, 12)
+position = Vector2(65, -3)
 
 [node name="Door" parent="." instance=ExtResource("9_xjqyt")]
 position = Vector2(67, -163)
+nextScene = ExtResource("10_ib5ti")
 
 [node name="KillZone" type="Area2D" parent="."]
 position = Vector2(-5, 131)

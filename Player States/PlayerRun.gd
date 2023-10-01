@@ -57,7 +57,6 @@ func update_frame():
 	sprite.frame = (int(sec*fps)) % sprite.hframes;
 
 func playStepSound():
-	print("step")
 	audio_stream_player.pitch_scale = 1.0 + randf_range(-0.1, 0.1)
 	audio_stream_player.play()
 	pass
