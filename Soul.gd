@@ -32,7 +32,7 @@ func do():
 			set_state(despawn, true)
 		elif(state == despawn):
 			complete()
-	
+
 	
 
 func dismiss():
