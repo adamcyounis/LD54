@@ -13,6 +13,8 @@ var currentScene
 var playerSpawnPosition: Vector2
 var died: bool = false
 
+var chalices: Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	singleton = self
@@ -70,3 +72,10 @@ func SceneIn(d: bool):
 		sceneFader.play("DownEnd")
 	else:
 		sceneFader.play("ForwardEnd")
+
+func add_chalice(chalice):
+	if chalice not in chalices:
+		chalices.append(chalice)
+
+func get_chalice_count():
+	return chalices.size()

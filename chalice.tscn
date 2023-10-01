@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfla4tmti84gt"]
+
+[ext_resource type="Script" path="res://Levels/Chalice.gd" id="1_ljn3m"]
+[ext_resource type="Texture2D" uid="uid://c1qwngjla4j7p" path="res://Sprites/Chalice-Pulse.png" id="2_sria1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2031"]
+radius = 4.0
+
+[node name="Chalice" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_mask = 5
+script = ExtResource("1_ljn3m")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("CircleShape2D_j2031")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sria1")
+hframes = 11

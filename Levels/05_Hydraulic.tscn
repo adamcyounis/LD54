@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bip015y6aa4dl"]
+[gd_scene load_steps=12 format=3 uid="uid://bip015y6aa4dl"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_rpcmj"]
 [ext_resource type="Texture2D" uid="uid://cws71uy10b84j" path="res://Sprites/Level Designs/Level 5/Level 5_background.png" id="2_5mbn3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d1uydp6fdejnq" path="res://Levels/Seance.tscn" id="8_l1jg7"]
 [ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="9_a0lhn"]
 [ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="10_fbhom"]
+[ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="11_8qi22"]
 
 [node name="Moves with Player" type="Node2D"]
 
@@ -61,6 +62,7 @@ position = Vector2(-320, -320)
 polygon = PackedVector2Array(577, 524, 576, 524, 576, 526, 578, 526, 578, 510, 577, 510)
 
 [node name="Level1Foreground" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+z_index = 1
 texture = ExtResource("4_3rt1j")
 
 [node name="Player" parent="." instance=ExtResource("5_dpdyd")]
@@ -89,5 +91,8 @@ texture = ExtResource("9_a0lhn")
 script = ExtResource("10_fbhom")
 points = [NodePath("../Soul Point 1"), NodePath("../Soul Point 2")]
 interval = 2.0
+
+[node name="Chalice" parent="." instance=ExtResource("11_8qi22")]
+position = Vector2(6, 28)
 
 [editable path="Player"]

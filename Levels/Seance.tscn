@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1uydp6fdejnq"]
+[gd_scene load_steps=13 format=3 uid="uid://d1uydp6fdejnq"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_r0u7h"]
 [ext_resource type="Texture2D" uid="uid://c72i2tpmow5pl" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_background.png" id="2_p33d7"]
@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_hhfj5"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_7pend"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_pvsgi"]
-[ext_resource type="AudioStream" uid="uid://b75ff4xdw1q0j" path="res://Sound/Footstep.ogg" id="8_5s5ds"]
 [ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="10_2r1f6"]
-[ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="10_yi8wt"]
+[ext_resource type="PackedScene" uid="uid://b0rp8q05ixdhq" path="res://Levels/Shift.tscn" id="10_mk3fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
 size = Vector2(2, 20)
@@ -31,9 +30,6 @@ texture = ExtResource("2_p33d7")
 
 [node name="Figures" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
 texture = ExtResource("4_6h1gx")
-
-[node name="Text" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
-texture = ExtResource("5_b014v")
 
 [node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
 script = ExtResource("1_r0u7h")
@@ -60,6 +56,9 @@ polygon = PackedVector2Array(305, 328, 306, 328, 306, 332, 305, 332, 305, 337, 3
 [node name="Level2Midground" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
 texture = ExtResource("3_6y6vw")
 
+[node name="Text" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("5_b014v")
+
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
 script = ExtResource("1_r0u7h")
 parallax = Vector2(2, 2)
@@ -81,9 +80,6 @@ texture = ExtResource("4_qk6tm")
 position = Vector2(-114, 61)
 hasSoul = false
 
-[node name="AudioStreamPlayer" parent="Player/StateMachine/Body/StateMachine/PlayerGroundControl/PlayerRun" index="0"]
-stream = ExtResource("8_5s5ds")
-
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(1, 19)
 script = ExtResource("6_7pend")
@@ -93,7 +89,7 @@ magnitude = 0.3
 
 [node name="Door" parent="." instance=ExtResource("7_pvsgi")]
 position = Vector2(125, 50)
-nextScene = ExtResource("10_yi8wt")
+nextScene = ExtResource("10_mk3fe")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 5

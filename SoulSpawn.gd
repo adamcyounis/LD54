@@ -1,6 +1,6 @@
 class_name SoulSpawn extends State
 @export var decay: float =0.9
-@export var spawnForce: float =60
+@export var spawnForce: float =20
 @export var playerPos: Node2D
 @export var audio: AudioStreamPlayer
 
