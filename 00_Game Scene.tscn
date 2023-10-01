@@ -15,8 +15,9 @@ gradient = SubResource("Gradient_vneac")
 fill_from = Vector2(0.611111, 0.538462)
 
 [node name="GameManager" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_hsw4w"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_3stm7")])
+scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_hsw4w"), ExtResource("2_3stm7")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

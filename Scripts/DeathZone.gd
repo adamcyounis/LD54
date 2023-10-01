@@ -13,5 +13,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	#check to see if the body belongs to GameManager.singleton.player
-	if body == GameManager.singleton.player:
+	if body == GameManager.singleton.player.myBody:
 		GameManager.respawn_player()		
