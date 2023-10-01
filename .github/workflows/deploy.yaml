@@ -33,7 +33,7 @@ jobs:
           butlerApiKey: ${{ secrets.BUTLER_KEY }}
           gameData: ./bin/web/web.zip
           itchUsername: uppon-hill
-          itchGameId: LD54
+          itchGameId: though-i-walk
           buildChannel: html5
 
       - name: Upload windows build to itch
@@ -42,5 +42,5 @@ jobs:
           butlerApiKey: ${{ secrets.BUTLER_KEY }}
           gameData: ./bin/win/win.zip
           itchUsername: uppon-hill
-          itchGameId: LD54
+          itchGameId: though-i-walk
           buildChannel: windows
