@@ -33,10 +33,8 @@ func _process(_delta):
 		
 	handle_soul_switching_actions()
 
-	if(soul.state == soul.despawn and hasSoul):
-		mat.set_shader_parameter("replacement_color", Vector4(0.8,0.8,0.8,1))
-	else: 
-		mat.set_shader_parameter("replacement_color",  Vector4(19.0/256.0,19.0/256.0,29.0/256.0,1))
+	handle_shader_colour()
+
 		
 func _physics_process(_delta):
 	machine.physics_do()
@@ -78,3 +76,10 @@ func return_to_player():
 	body.set_state(body.kneel, true)
 	soul.set_state(soul.despawn, true)
 	soul.despawn.play_sound()
+
+func handle_shader_colour():
+	if(soul.state == soul.despawn and hasSoul):
+		mat.set_shader_parameter("replacement_color", Vector4(0.8,0.8,0.8,1))
+	else: 
+		mat.set_shader_parameter("replacement_color",  Vector4(19.0/256.0,19.0/256.0,29.0/256.0,1))
+

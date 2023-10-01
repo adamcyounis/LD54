@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1uydp6fdejnq"]
+[gd_scene load_steps=18 format=3 uid="uid://d1uydp6fdejnq"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_r0u7h"]
 [ext_resource type="Texture2D" uid="uid://c72i2tpmow5pl" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_background.png" id="2_p33d7"]
@@ -11,6 +11,130 @@
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_pvsgi"]
 [ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="10_2r1f6"]
 [ext_resource type="PackedScene" uid="uid://b0rp8q05ixdhq" path="res://Levels/Shift.tscn" id="10_mk3fe"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="12_swu3e"]
+[ext_resource type="Script" path="res://Levels/SimpleAnimateSprite.gd" id="13_0eii2"]
+
+[sub_resource type="Animation" id="Animation_funm5"]
+resource_name = "Cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Back/Figures:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/StateMachine/Soul:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2, 4.2, 4.86848)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player/StateMachine/Soul:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.05, -1.5, -99.5, -1.1, 0, 0.291399, -1, -99.5, -0.408601, -1, 0.841399, 1, -1.5, -1.45506, -1, 0.25, 0),
+"times": PackedFloat32Array(2, 4.3, 5.15, 7.325)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Player/StateMachine/Soul")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"overrideCutscene"
+}, {
+"args": [true],
+"method": &"showMe"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2poy2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Back/Figures:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/StateMachine/Soul:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player/StateMachine/Soul:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t31tv"]
+_data = {
+"Cutscene": SubResource("Animation_funm5"),
+"RESET": SubResource("Animation_2poy2")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
 size = Vector2(2, 20)
@@ -84,7 +208,7 @@ hasSoul = false
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(1, 19)
 script = ExtResource("6_7pend")
-target = NodePath("../Player/StateMachine/Soul")
+target = NodePath("../Player")
 followSpeed = 10.0
 magnitude = 0.3
 
@@ -92,11 +216,30 @@ magnitude = 0.3
 position = Vector2(125, 50)
 nextScene = ExtResource("10_mk3fe")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Cutscene" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area2D")
+libraries = {
+"": SubResource("AnimationLibrary_t31tv")
+}
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("animator")]
 collision_mask = 5
 script = ExtResource("10_2r1f6")
+animator = NodePath("../Cutscene")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gorgf")
+
+[node name="Level Soul" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -11)
+texture = ExtResource("12_swu3e")
+hframes = 7
+
+[node name="Sprite Animator" type="Node" parent="Level Soul" node_paths=PackedStringArray("sprite")]
+script = ExtResource("13_0eii2")
+sprite = NodePath("..")
+hFrames = 7
+texture = ExtResource("12_swu3e")
 
 [editable path="Player"]

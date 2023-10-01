@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4yas8a0hg7og"]
+[gd_scene load_steps=15 format=3 uid="uid://4yas8a0hg7og"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_w0seh"]
 [ext_resource type="Texture2D" uid="uid://v8uk7ytlvd4a" path="res://Sprites/Level Designs/Level 1/Level 1_background.png" id="2_r8512"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bip015y6aa4dl" path="res://Levels/05_Hydraulic.tscn" id="8_imq0v"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="9_shbmy"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="10_1rt3b"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="11_tga3j"]
+[ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="12_p13d8"]
+[ext_resource type="Script" path="res://Levels/SimpleAnimateSprite.gd" id="13_emudn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1i5w"]
 size = Vector2(231, 45)
@@ -62,13 +65,13 @@ z_index = 1
 texture = ExtResource("4_cjfns")
 
 [node name="Player" parent="." instance=ExtResource("5_6qb8h")]
-position = Vector2(-78, 34)
+position = Vector2(-59, 34)
 hasSoul = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(17, 48)
 script = ExtResource("6_luifa")
-target = NodePath("../Player/StateMachine/Soul")
+target = NodePath("../Level Soul")
 followSpeed = 10.0
 magnitude = 0.2
 
@@ -87,5 +90,25 @@ shape = SubResource("RectangleShape2D_w1i5w")
 
 [node name="Chalice" parent="." instance=ExtResource("10_1rt3b")]
 position = Vector2(16, 48)
+
+[node name="Soul Point 1" type="Node2D" parent="."]
+position = Vector2(-13, 38)
+
+[node name="Soul Point 2" type="Node2D" parent="."]
+position = Vector2(55, 38)
+
+[node name="Level Soul" type="Sprite2D" parent="." node_paths=PackedStringArray("points")]
+position = Vector2(-18, 24)
+texture = ExtResource("11_tga3j")
+hframes = 7
+script = ExtResource("12_p13d8")
+points = [NodePath("../Soul Point 2"), NodePath("../Soul Point 1")]
+interval = 2.0
+
+[node name="Sprite Animator" type="Node" parent="Level Soul" node_paths=PackedStringArray("sprite")]
+script = ExtResource("13_emudn")
+sprite = NodePath("..")
+hFrames = 7
+texture = ExtResource("11_tga3j")
 
 [editable path="Player"]

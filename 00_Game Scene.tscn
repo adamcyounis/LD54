@@ -161,7 +161,7 @@ _data = {
 
 [node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container")]
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("12_yj02t"), ExtResource("11_npynp"), ExtResource("4_jgj4w"), ExtResource("2_nk7th"), ExtResource("2_hsw4w"), ExtResource("2_og772"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2")])
+scenes = Array[PackedScene]([ExtResource("2_og772"), ExtResource("2_sxqsy"), ExtResource("2_nk7th"), ExtResource("2_hsw4w"), ExtResource("11_npynp"), ExtResource("4_jgj4w"), ExtResource("2_n28jv"), ExtResource("9_i7qol"), ExtResource("2_3stm7"), ExtResource("10_ryiy2"), ExtResource("12_yj02t")])
 sceneFader = NodePath("AnimationPlayer")
 container = NodePath("Container")
 

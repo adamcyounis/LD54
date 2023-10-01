@@ -1,6 +1,6 @@
 extends Area2D
 var triggered = false
-
+@export var animator: AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -20,5 +20,7 @@ func start_cutsene():
 	triggered = true;
 	var bs = GameManager.singleton.bodyAndSoul
 	bs.hasSoul = true
-	bs.machine.set_state(bs.soul, true)
+	#bs.machine.set_state(bs.soul, true)
 	bs.body.set_state(bs.body.kneel, true)
+	animator.play("Cutscene")
+

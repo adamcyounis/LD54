@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://d1uydp6fdejnq"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_r0u7h"]
+[ext_resource type="Texture2D" uid="uid://c72i2tpmow5pl" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_background.png" id="2_p33d7"]
+[ext_resource type="Texture2D" uid="uid://bts45l774keyw" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_midground.png" id="3_6y6vw"]
+[ext_resource type="Texture2D" uid="uid://jx4sp7t8h0bg" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_figures.png" id="4_6h1gx"]
+[ext_resource type="Texture2D" uid="uid://b1yvjp8otxq75" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_foreground.png" id="4_qk6tm"]
+[ext_resource type="Texture2D" uid="uid://dtqw3dytx2m64" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_text.png" id="5_b014v"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_hhfj5"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_7pend"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_pvsgi"]
+[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="10_2r1f6"]
+[ext_resource type="PackedScene" uid="uid://b0rp8q05ixdhq" path="res://Levels/Shift.tscn" id="10_mk3fe"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="12_swu3e"]
+[ext_resource type="Script" path="res://Levels/SimpleAnimateSprite.gd" id="13_0eii2"]
+
+[sub_resource type="Animation" id="Animation_funm5"]
+resource_name = "Cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Back/Figures:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/StateMachine/Soul:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2, 4.2, 4.86848)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player/StateMachine/Soul:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.05, -1.5, -99.5, -1.1, 0, 0.291399, -1, -99.5, -0.408601, -1, 0.841399, 1, -1.5, -1.45506, -1, 0.25, 0),
+"times": PackedFloat32Array(2, 4.3, 5.15, 7.325)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Player/StateMachine/Soul")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"overrideCutscene"
+}, {
+"args": [true],
+"method": &"showMe"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera2D:target")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulat

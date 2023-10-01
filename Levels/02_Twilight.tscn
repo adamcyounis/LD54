@@ -43,7 +43,7 @@ texture = ExtResource("3_6gcy7")
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
 position = Vector2(2.405, -3)
 script = ExtResource("1_erery")
-parallax = Vector2(-0.5, 0)
+parallax = Vector2(0, 0)
 
 [node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
 

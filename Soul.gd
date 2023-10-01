@@ -7,6 +7,8 @@ class_name Soul extends State
 @export var fly: Fly
 @export var spawn: SoulSpawn
 @export var despawn: SoulDespawn
+var cutsceneOverride: bool = false
+
 var fps = 8
 func _ready():
 	super()
@@ -55,13 +57,11 @@ func _process(_delta):
 	elif(state != fly and !collider.disabled):
 		collideMe(false)
 
-	if !is_active_state() && state == despawn:
+	if !is_active_state() && state == despawn && !cutsceneOverride:
 		body.global_position = bodyState.global_position
 	#check if z key was pressed
 	#toggleProcess()
 	#print(collider.is_physics_processing_internal())
-	
-
 
 
 func showMe(show: bool):
@@ -80,3 +80,6 @@ func update_sprite():
 	var millis = Time.get_ticks_msec()
 	var sec = millis/1000.0
 	sprite.frame = (int(sec*fps)) % sprite.hframes;
+
+func overrideCutscene(override: bool):
+	cutsceneOverride = override

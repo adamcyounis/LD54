@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bip015y6aa4dl"]
+[gd_scene load_steps=13 format=3 uid="uid://bip015y6aa4dl"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_rpcmj"]
 [ext_resource type="Texture2D" uid="uid://cws71uy10b84j" path="res://Sprites/Level Designs/Level 5/Level 5_background.png" id="2_5mbn3"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_cl7s3"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_vlehr"]
 [ext_resource type="PackedScene" uid="uid://d1uydp6fdejnq" path="res://Levels/Seance.tscn" id="8_l1jg7"]
-[ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="9_a0lhn"]
 [ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="10_fbhom"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="11_8qi22"]
+[ext_resource type="Script" path="res://Levels/SimpleAnimateSprite.gd" id="11_p8g1j"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="12_s4qne"]
 
 [node name="Moves with Player" type="Node2D"]
 
@@ -40,27 +41,27 @@ polygon = PackedVector2Array(0, 640, 640, 640, 640, 0, 356, 0, 356, 34, 355, 34,
 texture = ExtResource("3_4idkj")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
-position = Vector2(2, -3)
+position = Vector2(9, 52)
 script = ExtResource("1_rpcmj")
-parallax = Vector2(-2, -2)
+parallax = Vector2(-1, -1)
 
 [node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
 
-[node name="@CollisionPolygon2D@604546" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+[node name="@CollisionPolygon2D@111918" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
 position = Vector2(-320, -320)
-polygon = PackedVector2Array(312, 138, 313, 138, 313, 137, 312, 137)
+polygon = PackedVector2Array(312, 74, 313, 74, 313, 73, 312, 73)
 
-[node name="@CollisionPolygon2D@604547" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+[node name="@CollisionPolygon2D@111919" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
 position = Vector2(-320, -320)
-polygon = PackedVector2Array(312, 353, 311, 353, 311, 362, 337, 362, 337, 360, 338, 360, 338, 358, 339, 358, 339, 350, 338, 350, 338, 341, 337, 341, 337, 337, 312, 337)
+polygon = PackedVector2Array(312, 289, 311, 289, 311, 298, 337, 298, 337, 296, 338, 296, 338, 294, 339, 294, 339, 286, 338, 286, 338, 277, 337, 277, 337, 273, 312, 273)
 
-[node name="@CollisionPolygon2D@604548" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+[node name="@CollisionPolygon2D@111920" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
 position = Vector2(-320, -320)
-polygon = PackedVector2Array(303, 388, 302, 388, 302, 391, 303, 391, 303, 408, 302, 408, 302, 410, 301, 410, 301, 411, 300, 411, 300, 412, 299, 412, 299, 413, 297, 413, 297, 414, 296, 414, 296, 415, 295, 415, 295, 416, 294, 416, 294, 417, 293, 417, 293, 418, 292, 418, 292, 419, 290, 419, 290, 421, 291, 421, 291, 442, 290, 442, 290, 455, 359, 455, 359, 407, 358, 407, 358, 403, 357, 403, 357, 404, 355, 404, 355, 405, 353, 405, 353, 406, 348, 406, 348, 405, 346, 405, 346, 400, 347, 400, 347, 389, 346, 389, 346, 387, 345, 387, 345, 386, 303, 386)
+polygon = PackedVector2Array(303, 324, 302, 324, 302, 327, 303, 327, 303, 344, 302, 344, 302, 346, 301, 346, 301, 347, 300, 347, 300, 348, 299, 348, 299, 349, 297, 349, 297, 350, 296, 350, 296, 351, 295, 351, 295, 352, 294, 352, 294, 353, 293, 353, 293, 354, 292, 354, 292, 355, 290, 355, 290, 357, 291, 357, 291, 378, 290, 378, 290, 391, 359, 391, 359, 343, 358, 343, 358, 339, 357, 339, 357, 340, 355, 340, 355, 341, 353, 341, 353, 342, 348, 342, 348, 341, 346, 341, 346, 336, 347, 336, 347, 325, 346, 325, 346, 323, 345, 323, 345, 322, 303, 322)
 
-[node name="@CollisionPolygon2D@604549" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+[node name="@CollisionPolygon2D@111921" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
 position = Vector2(-320, -320)
-polygon = PackedVector2Array(577, 524, 576, 524, 576, 526, 578, 526, 578, 510, 577, 510)
+polygon = PackedVector2Array(577, 460, 576, 460, 576, 462, 578, 462, 578, 446, 577, 446)
 
 [node name="Level1Foreground" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
 z_index = 1
@@ -82,16 +83,25 @@ position = Vector2(82, 53)
 nextScene = ExtResource("8_l1jg7")
 
 [node name="Soul Point 1" type="Node2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(7, 21)
 
 [node name="Soul Point 2" type="Node2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(7, -10)
 
 [node name="Level Soul" type="Sprite2D" parent="." node_paths=PackedStringArray("points")]
-texture = ExtResource("9_a0lhn")
+z_index = 2
+position = Vector2(-18, 24)
+texture = ExtResource("12_s4qne")
+hframes = 7
 script = ExtResource("10_fbhom")
 points = [NodePath("../Soul Point 1"), NodePath("../Soul Point 2")]
 interval = 2.0
+
+[node name="Sprite Animator" type="Node" parent="Level Soul" node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_p8g1j")
+sprite = NodePath("..")
+hFrames = 7
+texture = ExtResource("12_s4qne")
 
 [node name="Chalice" parent="." instance=ExtResource("11_8qi22")]
 position = Vector2(6, 28)

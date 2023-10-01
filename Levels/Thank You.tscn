@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_666bg"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_54ouk"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_tupws"]
-[ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/01_The Graveyard.tscn" id="11_hryf7"]
+[ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/01_The Graveyard.tscn" id="11_62wbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
 size = Vector2(2, 20)
@@ -102,9 +102,5 @@ script = ExtResource("10_tupws")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(21.5, 12.5)
 shape = SubResource("RectangleShape2D_vdggo")
-
-[node name="Door" parent="." instance=ExtResource("9_54ouk")]
-position = Vector2(82, 35)
-nextScene = ExtResource("11_hryf7")
 
 [editable path="Player"]
