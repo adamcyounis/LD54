@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bn73vlwykc1yx"]
+[gd_scene load_steps=12 format=3 uid="uid://bn73vlwykc1yx"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_rmvca"]
 [ext_resource type="Texture2D" uid="uid://dsn4pkhtmk3jj" path="res://Sprites/Level Designs/Level 10 - Ascent/Level 10 - Ascent_background.png" id="2_0vnct"]
@@ -6,14 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://611tcj4wnqe3" path="res://Sprites/Level Designs/Level 10 - Ascent/Level 10 - Ascent_foreground.png" id="4_gifmg"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_ci3dx"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_3bdtc"]
-[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_sv5rp"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="8_l10dv"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_xjqyt"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_44geh"]
 [ext_resource type="PackedScene" uid="uid://c58w6b2wnmpby" path="res://Levels/Thank You.tscn" id="10_ib5ti"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
-size = Vector2(2, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdggo"]
 size = Vector2(231, 45)
@@ -83,20 +79,12 @@ script = ExtResource("6_3bdtc")
 target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 5
-script = ExtResource("7_sv5rp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_gorgf")
-
 [node name="Chalice2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_l10dv")]
 position = Vector2(-42, -151)
 sprite = NodePath("../Chalice/Sprite2D")
 
-[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_l10dv")]
+[node name="Chalice" parent="." instance=ExtResource("8_l10dv")]
 position = Vector2(65, -3)
-sprite = NodePath("")
 
 [node name="Door" parent="." instance=ExtResource("9_xjqyt")]
 position = Vector2(67, -163)

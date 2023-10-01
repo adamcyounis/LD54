@@ -78,8 +78,9 @@ func SceneIn(d: bool):
 
 
 func add_chalice(chalice):
-	if chalice not in chalices:
-		chalices.append(chalice)
+	var n = chalice.get_path()
+	if n not in chalices:
+		chalices.append(n)
 
 
 func get_chalice_count():

@@ -103,8 +103,7 @@ sprite = NodePath("..")
 hFrames = 7
 texture = ExtResource("12_s4qne")
 
-[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("11_8qi22")]
+[node name="Chalice" parent="." instance=ExtResource("11_8qi22")]
 position = Vector2(6, 28)
-sprite = NodePath("")
 
 [editable path="Player"]

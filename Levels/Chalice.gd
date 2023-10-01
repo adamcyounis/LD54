@@ -4,12 +4,14 @@ extends Area2D
 var fps: float = 8.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(is_instance_valid(sprite)):
+		sprite.hframes = 11
 	body_entered.connect(on_body_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	update_sprite()
-	pass
+	if(is_instance_valid(sprite)):
+		update_sprite()
 
 func on_body_entered(body):
 	#check to see if the body belongs to GameManager.singleton.player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c58w6b2wnmpby"]
+[gd_scene load_steps=13 format=3 uid="uid://c58w6b2wnmpby"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_ljyr6"]
 [ext_resource type="Texture2D" uid="uid://cwq0rj8klsm3u" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_background.png" id="2_nqx4g"]
@@ -7,13 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bj4fatekd0ufc" path="res://Sprites/Level Designs/Level 11 - Fin/Level 11 - Fin_foreground.png" id="4_ar4y8"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_b2af1"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_20xpr"]
-[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_666bg"]
 [ext_resource type="Script" path="res://Levels/Door2.gd" id="10_5duhg"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="10_tupws"]
 [ext_resource type="Texture2D" uid="uid://deyakr5m6odab" path="res://Sprites/Lantern/Lantern_layer 1.png" id="11_r45q7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
-size = Vector2(2, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdggo"]
 size = Vector2(231, 45)
@@ -89,13 +85,6 @@ script = ExtResource("6_20xpr")
 target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
 magnitude = 0.3
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 5
-script = ExtResource("7_666bg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_gorgf")
 
 [node name="KillZone" type="Area2D" parent="."]
 position = Vector2(-5, 131)

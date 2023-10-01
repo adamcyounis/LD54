@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4woefr12yxn3"]
+[gd_scene load_steps=10 format=3 uid="uid://4woefr12yxn3"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_6e7ec"]
 [ext_resource type="Texture2D" uid="uid://c6e36t7oftav3" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_background.png" id="2_bj81s"]
@@ -6,13 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cwqv47y86dsgn" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_foreground.png" id="4_jc6gn"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_n35ea"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_knvfk"]
-[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_5nvrn"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="8_4p1ou"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_5ei4e"]
 [ext_resource type="PackedScene" uid="uid://bn73vlwykc1yx" path="res://Levels/Ascent.tscn" id="10_qmr52"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
-size = Vector2(2, 20)
 
 [node name="Seance" type="Node2D"]
 
@@ -70,16 +66,8 @@ target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
 magnitude = 0.3
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 5
-script = ExtResource("7_5nvrn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_gorgf")
-
-[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_4p1ou")]
+[node name="Chalice" parent="." instance=ExtResource("8_4p1ou")]
 position = Vector2(0, 14)
-sprite = NodePath("")
 
 [node name="Door" parent="." instance=ExtResource("9_5ei4e")]
 position = Vector2(-61, 28)

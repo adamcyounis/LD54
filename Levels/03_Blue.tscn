@@ -70,8 +70,7 @@ magnitude = 0.7
 position = Vector2(93, 55)
 nextScene = ExtResource("8_038i6")
 
-[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_50x1x")]
+[node name="Chalice" parent="." instance=ExtResource("9_50x1x")]
 position = Vector2(-64, 15)
-sprite = NodePath("")
 
 [editable path="Player"]
