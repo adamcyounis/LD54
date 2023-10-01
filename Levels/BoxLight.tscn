@@ -77,8 +77,9 @@ script = ExtResource("7_5nvrn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gorgf")
 
-[node name="Chalice" parent="." instance=ExtResource("8_4p1ou")]
+[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_4p1ou")]
 position = Vector2(0, 14)
+sprite = NodePath("")
 
 [node name="Door" parent="." instance=ExtResource("9_5ei4e")]
 position = Vector2(-61, 28)

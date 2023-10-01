@@ -88,8 +88,9 @@ script = ExtResource("9_shbmy")
 position = Vector2(21.5, 12.5)
 shape = SubResource("RectangleShape2D_w1i5w")
 
-[node name="Chalice" parent="." instance=ExtResource("10_1rt3b")]
+[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("10_1rt3b")]
 position = Vector2(16, 48)
+sprite = NodePath("")
 
 [node name="Soul Point 1" type="Node2D" parent="."]
 position = Vector2(-13, 38)

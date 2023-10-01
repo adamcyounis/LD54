@@ -56,10 +56,12 @@ func go_to_level(nextScene: PackedScene):
 func prepare_level(nextScene: PackedScene):
 	scene_to_load = nextScene
 
+
 func player_died():
 	if(!died):
 		died = true
 		prepare_level(currentScene)
+
 
 func SceneOut(d: bool):
 	if(d):
@@ -67,15 +69,22 @@ func SceneOut(d: bool):
 	else:
 		sceneFader.play("ForwardStart")
 	
+
 func SceneIn(d: bool):
 	if(d):
 		sceneFader.play("DownEnd")
 	else:
 		sceneFader.play("ForwardEnd")
 
+
 func add_chalice(chalice):
 	if chalice not in chalices:
 		chalices.append(chalice)
 
+
 func get_chalice_count():
 	return chalices.size()
+
+
+func forceSoulAbovePlayer():
+	singleton.bodyAndSoul.set_cutscene_override()

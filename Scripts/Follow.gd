@@ -1,4 +1,4 @@
-extends Camera2D
+class_name Follow extends Camera2D
 @export var target: Node2D
 @export var followSpeed: float = 1.0
 @export var magnitude: float = 1.0
@@ -25,3 +25,6 @@ func _process(delta):
 	var destination = targetStartPos + (adjustedDrift)
 	global_position = lerp(global_position, destination, followSpeed*delta)
 
+func retarget(newTarget:NodePath):
+	target = get_node(newTarget)
+	print("retargeting to " + str(target))

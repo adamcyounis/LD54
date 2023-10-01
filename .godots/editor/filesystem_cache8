@@ -1,0 +1,140 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696187315
+00_Game Scene.tscn::PackedScene::3149121698847815700::1696186423::0::1::::<><>::res://Scripts/00_GameManager.gd<>uid://fb1qsne6gp0h
+Arrow.gd::GDScript::-1::1696163892::0::1::::Arrow<>Sprite2D<>::
+BodyAndSoul.gd::GDScript::-1::1696186918::0::1::::BodyAndSoul<>Node2D<>::
+chalice.tscn::PackedScene::7532967229943964859::1696186423::0::1::::<><>::res://Levels/Chalice.gd<>uid://c1qwngjla4j7p
+colour_replace.gdshader::Shader::-1::1696183759::0::1::::<><>::
+default_env.tres::Environment::4074684241285826569::1696187255::0::1::::<><>::
+Demo Scene.tscn::PackedScene::-1::1696031684::0::1::::<><>::res://Sprites/Level Test/Level Test_background.png<>res://Sprites/Level Test/Level Test_foreground.png<>res://Sprites/Level Test/Level Test_midground.png<>res://Test Camera3D Script.gd
+door.tscn::PackedScene::6179854917001803963::1696186423::0::1::::<><>::res://Scripts/Door.gd<>uid://deyakr5m6odab
+export_presets.cfg::TextFile::-1::1696032235::0::1::::<><>::
+Fly.gd::GDScript::-1::1696176083::0::1::::Fly<>State<>::
+icon.png::CompressedTexture2D::2093940984488114466::1695963563::1696184328::1::::<><>::
+Parallax.gd::GDScript::-1::1696179580::0::1::::<>Node2D<>::
+Player.tscn::PackedScene::569143253630998088::1696186423::0::1::::<><>::res://BodyAndSoul.gd<>res://Scripts/Player.gd<>res://StateMachine/StateMachine.gd<>res://Player States/PlayerGroundControl.gd<>res://Player States/PlayerIdle.gd<>res://Player States/PlayerRun.gd<>res://Player States/PlayerJump.gd<>uid://bcuyta8pws6xl
+Soul.gd::GDScript::-1::1696182844::0::1::::Soul<>State<>::
+SoulSpawn.gd::GDScript::-1::1696168577::0::1::::SoulSpawn<>State<>::
+::res://bin/::1695970363
+::res://bin/web/::1695970359
+::res://bin/win/::1695970359
+::res://Levels/::1696187255
+01_The Graveyard.tscn::PackedScene::6257246426903556624::1696186423::0::1::::<><>::res://Scripts/Parallax.gd<>uid://cwry0tv88rx
+02_Twilight.tscn::PackedScene::8377515202473479503::1696183043::0::1::::<><>::res://Scripts/Parallax.gd<>uid://cld7hqn4f3oxw
+03_Blue.tscn::PackedScene::354616776184810229::1696183255::0::1::::<><>::res://Scripts/Parallax.gd<>uid://byuntlmd3icx6
+04_The Gap.tscn::PackedScene::2085055410306729890::1696183042::0::1::::<><>::res://Scripts/Parallax.gd<>uid://v8uk7ytlvd4a
+05_Hydraulic.tscn::PackedScene::2980463068753287749::1696183042::0::1::::<><>::res://Scripts/Parallax.gd<>uid://cws71uy10b84j
+Ascent.tscn::PackedScene::3366673929433370463::1696183044::0::1::::<><>::res://Scripts/Parallax.gd<>uid://dsn4pkhtmk3jj
+BoxLight.tscn::PackedScene::2081750247263402530::1696183043::0::1::::<><>::res://Scripts/Parallax.gd<>uid://c6e36t7oftav3
+Chalice.gd::GDScript::-1::1696169899::0::1::::<>Area2D<>::
+CutsceneTrigger.gd::GDScript::-1::1696187210::0::1::::CutsceneTrigger<>Area2D<>::
+Door2.gd::GDScript::-1::1696185517::0::1::::Door2<>Area2D<>::
+Fader.gd::GDScript::-1::1696061167::0::1::::<>Sprite2D<>::
+Levator.tscn::PackedScene::5182596598567475013::1696183043::0::1::::<><>::res://Scripts/Parallax.gd<>uid://wkulgs36w6dg
+moves_between_points.tscn::PackedScene::9071828788445607720::1696087101::0::1::::<><>::res://Scripts/Parallax.gd<>uid://v8uk7ytlvd4a
+Seance.tscn::PackedScene::9026922941927993758::1696186922::0::1::::<><>::res://Scripts/Parallax.gd<>uid://c72i2tpmow5pl
+Shift.tscn::PackedScene::4177206762921659202::1696183043::0::1::::<><>::res://Scripts/Parallax.gd<>uid://dj3t5ycjj7851
+SimpleAnimateSprite.gd::GDScript::-1::1696179761::0::1::::<>Node<>::
+SoulDespawn.gd::GDScript::-1::1696164913::0::1::::SoulDespawn<>State<>::
+Thank You.tscn::PackedScene::6948022371113570342::1696186423::0::1::::<><>::res://Scripts/Parallax.gd<>uid://cwq0rj8klsm3u
+::res://Player States/::1696030250
+PlayerGroundControl.gd::GDScript::-1::1696126568::0::1::::PlayerGroundControl<>State<>::
+PlayerIdle.gd::GDScript::-1::1696126433::0::1::::PlayerIdle<>State<>::
+PlayerJump.gd::GDScript::-1::1696160019::0::1::::PlayerJump<>State<>::
+PlayerRun.gd::GDScript::-1::1696178297::0::1::::PlayerRun<>State<>::
+::res://Scripts/::1696183172
+00_GameManager.gd::GDScript::-1::1696186681::0::1::::GameManager<>Node2D<>::
+CameraPointCycle.gd::GDScript::-1::1696134456::0::1::::<>Node2D<>::
+DeathZone.gd::GDScript::-1::1696138252::0::1::::<>Area2D<>::
+Door.gd::GDScript::-1::1696078082::0::1::::Door<>Area2D<>::
+Follow.gd::GDScript::-1::1696186614::0::1::::Follow<>Camera2D<>::
+MoveToClick.gd::GDScript::-1::1696036655::0::1::::<>Camera2D<>::
+Parallax.gd::GDScript::-1::1696054902::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1696166396::0::1::::Player<>State<>::
+Test Camera Script.gd::GDScript::-1::1696031684::0::1::::<>Camera2D<>::
+::res://Sound/::1696184327
+Footstep.ogg::AudioStreamOggVorbis::4694709085539690091::1696159472::1696184327::1::::<><>::
+Soul In.ogg::AudioStreamOggVorbis::8436086468173576694::1696160430::1696184327::1::::<><>::
+Soul Out.ogg::AudioStreamOggVorbis::8871908790557280454::1696160385::1696184327::1::::<><>::
+::res://Sprites/::1696184328
+Arrow.png::CompressedTexture2D::7385323669625751662::1696160998::1696184328::1::::<><>::
+Chalice-Pulse.png::CompressedTexture2D::6632140664745907963::1696180639::1696184328::1::::<><>::
+Fader-Rotated.png::CompressedTexture2D::1057287036230416955::1696144677::1696184328::1::::<><>::
+Fader.png::CompressedTexture2D::2266781368560179312::1696142175::1696184328::1::::<><>::
+Lantern.png::CompressedTexture2D::2526489016790541911::1696174076::1696184328::1::::<><>::
+Level Test.png::CompressedTexture2D::4478781156608928051::1695963884::1696184328::1::::<><>::
+Soul-Hover.png::CompressedTexture2D::2521989529482681554::1696162634::1696184328::1::::<><>::
+::res://Sprites/Lantern/::1696184329
+Lantern_layer 1.png::CompressedTexture2D::7489581289496206445::1696174237::1696184328::1::::<><>::
+::res://Sprites/Level Designs/::1696178809
+::res://Sprites/Level Designs/Level 1/::1696184329
+Level 1_background.png::CompressedTexture2D::1543324098778344094::1696174352::1696184329::1::::<><>::
+Level 1_foreground.png::CompressedTexture2D::3744679100854656337::1696174352::1696184329::1::::<><>::
+Level 1_midground.png::CompressedTexture2D::2626791906022935647::1696174352::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 2/::1696184329
+Level 2_background.png::CompressedTexture2D::5553068086774084972::1696172179::1696184329::1::::<><>::
+Level 2_foreground.png::CompressedTexture2D::5156685788311924867::1696172179::1696184329::1::::<><>::
+Level 2_midground.png::CompressedTexture2D::6668366670570363040::1696172179::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 3/::1696184329
+Level 3_background.png::CompressedTexture2D::5496187918550741::1696167042::1696184329::1::::<><>::
+Level 3_foreground.png::CompressedTexture2D::8041140248537264229::1696167042::1696184329::1::::<><>::
+Level 3_midground.png::CompressedTexture2D::7160610081110406894::1696167042::1696184329::1::::<><>::
+Level 3_no collision mid.png::CompressedTexture2D::3625375620397382110::1696167042::1696184329::1::::<><>::
+Level 3_text.png::CompressedTexture2D::3823528800809793370::1696167042::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 4/::1696184329
+Level 4_background.png::CompressedTexture2D::4113064333545776661::1696170481::1696184329::1::::<><>::
+Level 4_foreground.png::CompressedTexture2D::2579894324283824174::1696170481::1696184329::1::::<><>::
+Level 4_midground.png::CompressedTexture2D::9116013749268896577::1696170481::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 5/::1696184329
+Level 5_background.png::CompressedTexture2D::6356145190163161407::1696180031::1696184329::1::::<><>::
+Level 5_foreground.png::CompressedTexture2D::4609448501171149757::1696180031::1696184329::1::::<><>::
+Level 5_midground.png::CompressedTexture2D::8035910119435011568::1696180031::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 6 - Twist/::1696184329
+Level 6 - Twist_background.png::CompressedTexture2D::7075157537220968913::1696186350::1696184329::1::::<><>::
+Level 6 - Twist_figures.png::CompressedTexture2D::680974056357851572::1696186350::1696184329::1::::<><>::
+Level 6 - Twist_foreground.png::CompressedTexture2D::4262167652863825286::1696186351::1696184329::1::::<><>::
+Level 6 - Twist_midground.png::CompressedTexture2D::3758982507679845366::1696186350::1696184329::1::::<><>::
+Level 6 - Twist_text.png::CompressedTexture2D::8527266095877515539::1696186350::1696184329::1::::<><>::
+Level 6 - Twist_tutorial text.png::CompressedTexture2D::3135820525602774576::1696186351::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 7 - Shift/::1696184329
+Level 7 - Shift_background.png::CompressedTexture2D::7849972681687233098::1696170668::1696184329::1::::<><>::
+Level 7 - Shift_figures.png::CompressedTexture2D::2363204997965998663::1696167250::1696184329::1::::<><>::
+Level 7 - Shift_foreground.png::CompressedTexture2D::4329900491058538475::1696170668::1696184329::1::::<><>::
+Level 7 - Shift_midground.png::CompressedTexture2D::366439333430049353::1696170668::1696184329::1::::<><>::
+Level 7 - Shift_text.png::CompressedTexture2D::2514812645166818812::1696170668::1696184329::1::::<><>::
+::res://Sprites/Level Designs/Level 8 - Levator/::1696184329
+Level 8 - Levator_background.png::CompressedTexture2D::1566032665426692616::1696174783::1696184329::1::::<><>::
+Level 8 - Levator_foreground.png::CompressedTexture2D::2605557039864555852::1696174783::1696184329::1::::<><>::
+Level 8 - Levator_midground.png::CompressedTexture2D::4735248866616063487::1696174783::1696184329::1::::<><>::
+Level 8 - Levator_text.png::CompressedTexture2D::5548863301301025593::1696174783::1696184328::1::::<><>::
+::res://Sprites/Level Designs/Level 9 - BoxLight/::1696184328
+Level 9 - BoxLight_background.png::CompressedTexture2D::6958709514610877070::1696173458::1696184328::1::::<><>::
+Level 9 - BoxLight_foreground.png::CompressedTexture2D::6351354535722653641::1696173458::1696184328::1::::<><>::
+Level 9 - BoxLight_midground.png::CompressedTexture2D::152654885924927533::1696173458::1696184328::1::::<><>::
+Level 9 - BoxLight_text.png::CompressedTexture2D::8093149930540801244::1696173458::1696184328::1::::<><>::
+::res://Sprites/Level Designs/Level 10 - Ascent/::1696184328
+Level 10 - Ascent_background.png::CompressedTexture2D::8451286263992331227::1696177757::1696184328::1::::<><>::
+Level 10 - Ascent_foreground.png::CompressedTexture2D::2231140666578175500::1696177757::1696184328::1::::<><>::
+Level 10 - Ascent_midground.png::CompressedTexture2D::5839663931642931276::1696177757::1696184328::1::::<><>::
+Level 10 - Ascent_text.png::CompressedTexture2D::176497980651748585::1696177757::1696184328::1::::<><>::
+::res://Sprites/Level Designs/Level 11 - Fin/::1696184328
+Level 11 - Fin_background.png::CompressedTexture2D::6351574778961889084::1696178951::1696184328::1::::<><>::
+Level 11 - Fin_foreground.png::CompressedTexture2D::3078291820849197876::1696178951::1696184328::1::::<><>::
+Level 11 - Fin_midground.png::CompressedTexture2D::8466056295766346578::1696178951::1696184328::1::::<><>::
+Level 11 - Fin_text.png::CompressedTexture2D::7145829143009350154::1696178951::1696184328::1::::<><>::
+::res://Sprites/Level Test/::1696184328
+Level Test_background.png::CompressedTexture2D::7899982348076661650::1695970091::1696184328::1::::<><>::
+Level Test_foreground.png::CompressedTexture2D::6905931173502879778::1695970091::1696184328::1::::<><>::
+Level Test_midground.png::CompressedTexture2D::9136003754870390765::1695970091::1696184328::1::::<><>::
+::res://Sprites/Player/::1696184328
+Player-Idle.png::CompressedTexture2D::6670435640014882650::1696127799::1696184328::1::::<><>::
+Player-Jump.png::CompressedTexture2D::4539176464801906272::1696127800::1696184328::1::::<><>::
+Player-Kneel.png::CompressedTexture2D::2569577115651170085::1696127800::1696184328::1::::<><>::
+Player-Run.png::CompressedTexture2D::5932955271870196862::1696127800::1696184328::1::::<><>::
+Player-Soul.png::CompressedTexture2D::3762150852367046019::1696127800::1696184328::1::::<><>::
+::res://Sprites/Player/Player/::1696184328
+Player_layer 2_1.png::CompressedTexture2D::9206987355032511973::1696116937::1696184328::1::::<><>::
+Player_layer 2_2.png::CompressedTexture2D::7886039186716570607::1696116937::1696184328::1::::<><>::
+::res://StateMachine/::1696130740
+State.gd::GDScript::-1::1696130765::0::1::::State<>Node<>::
+StateMachine.gd::GDScript::-1::1696031684::0::1::::StateMachine<>State<>::

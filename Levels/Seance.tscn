@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1uydp6fdejnq"]
+[gd_scene load_steps=22 format=3 uid="uid://d1uydp6fdejnq"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_r0u7h"]
 [ext_resource type="Texture2D" uid="uid://c72i2tpmow5pl" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_background.png" id="2_p33d7"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://b1yvjp8otxq75" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_foreground.png" id="4_qk6tm"]
 [ext_resource type="Texture2D" uid="uid://dtqw3dytx2m64" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_text.png" id="5_b014v"]
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_hhfj5"]
+[ext_resource type="Texture2D" uid="uid://bkxarg3gqy03u" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_tutorial text.png" id="6_2rbqq"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_7pend"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_pvsgi"]
+[ext_resource type="Texture2D" uid="uid://pf7okyvlv6mj" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_tutorial text 2.png" id="7_w4i0f"]
 [ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="10_2r1f6"]
 [ext_resource type="PackedScene" uid="uid://b0rp8q05ixdhq" path="res://Levels/Shift.tscn" id="10_mk3fe"]
 [ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="12_swu3e"]
@@ -16,7 +18,7 @@
 
 [sub_resource type="Animation" id="Animation_funm5"]
 resource_name = "Cutscene"
-length = 10.0
+length = 7.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,10 +26,10 @@ tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 4.4, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,43 +43,81 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "bezier"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Player/StateMachine/Soul:position:x")
+tracks/2/path = NodePath("../Player/StateMachine/Soul")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(2, 4.2, 4.86848)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Player/StateMachine/Soul:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 1.05, -1.5, -99.5, -1.1, 0, 0.291399, -1, -99.5, -0.408601, -1, 0.841399, 1, -1.5, -1.45506, -1, 0.25, 0),
-"times": PackedFloat32Array(2, 4.3, 5.15, 7.325)
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Player/StateMachine/Soul")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.9, 4.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [true],
 "method": &"overrideCutscene"
-}, {
-"args": [true],
-"method": &"showMe"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [NodePath("../Level Soul")],
+"method": &"retarget"
+}]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level Soul:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-11, -0.25, 0, 1.05, -2.5, -100, -1.2, -0.5, 0.25, 0, -100, -0.25, 0, 1.045, 2.5, -20, -1.38, -2, 0.25, 0),
+"times": PackedFloat32Array(2, 4.3, 5.1, 7.275)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Level Soul:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Environment/Parallax Layers/Mid/Text2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6.3, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(7.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_cutscene"
 }]
 }
 
@@ -93,7 +133,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,7 +150,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Player/StateMachine/Soul:position:x")
+tracks/2/path = NodePath("../Player/StateMachine/Soul:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,18 +161,100 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Player/StateMachine/Soul:position:y")
+tracks/3/path = NodePath("../Level Soul:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level Soul:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Environment/Parallax Layers/Mid/Text2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Environment/Parallax Layers/Mid/Text3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_80yvh"]
+resource_name = "Cutscene2"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Mid/Text3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vcc57"]
+resource_name = "Cutscene3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t31tv"]
 _data = {
 "Cutscene": SubResource("Animation_funm5"),
+"Cutscene2": SubResource("Animation_80yvh"),
+"Cutscene3": SubResource("Animation_vcc57"),
 "RESET": SubResource("Animation_2poy2")
 }
 
@@ -182,7 +304,18 @@ polygon = PackedVector2Array(305, 328, 306, 328, 306, 332, 305, 332, 305, 337, 3
 texture = ExtResource("3_6y6vw")
 
 [node name="Text" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_b014v")
+
+[node name="Text2" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+modulate = Color(1, 1, 1, 0)
+z_index = 45
+texture = ExtResource("6_2rbqq")
+
+[node name="Text3" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+modulate = Color(1, 1, 1, 0)
+z_index = 45
+texture = ExtResource("7_w4i0f")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
 script = ExtResource("1_r0u7h")
@@ -202,7 +335,7 @@ polygon = PackedVector2Array(299, 396, 300, 396, 300, 398, 272, 398, 272, 399, 2
 texture = ExtResource("4_qk6tm")
 
 [node name="Player" parent="." instance=ExtResource("5_hhfj5")]
-position = Vector2(-114, 61)
+position = Vector2(-111, 61)
 hasSoul = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
@@ -222,15 +355,18 @@ libraries = {
 "": SubResource("AnimationLibrary_t31tv")
 }
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("animator")]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("dummySoul", "camera", "animator")]
 collision_mask = 5
 script = ExtResource("10_2r1f6")
+dummySoul = NodePath("../Level Soul")
+camera = NodePath("../Camera2D")
 animator = NodePath("../Cutscene")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gorgf")
 
 [node name="Level Soul" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(0, -11)
 texture = ExtResource("12_swu3e")

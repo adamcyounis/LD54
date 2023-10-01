@@ -94,8 +94,9 @@ shape = SubResource("RectangleShape2D_gorgf")
 position = Vector2(-42, -151)
 sprite = NodePath("../Chalice/Sprite2D")
 
-[node name="Chalice" parent="." instance=ExtResource("8_l10dv")]
+[node name="Chalice" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_l10dv")]
 position = Vector2(65, -3)
+sprite = NodePath("")
 
 [node name="Door" parent="." instance=ExtResource("9_xjqyt")]
 position = Vector2(67, -163)

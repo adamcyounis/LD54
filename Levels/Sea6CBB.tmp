@@ -1,0 +1,242 @@
+[gd_scene load_steps=19 format=3 uid="uid://d1uydp6fdejnq"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_r0u7h"]
+[ext_resource type="Texture2D" uid="uid://c72i2tpmow5pl" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_background.png" id="2_p33d7"]
+[ext_resource type="Texture2D" uid="uid://bts45l774keyw" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_midground.png" id="3_6y6vw"]
+[ext_resource type="Texture2D" uid="uid://jx4sp7t8h0bg" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_figures.png" id="4_6h1gx"]
+[ext_resource type="Texture2D" uid="uid://b1yvjp8otxq75" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_foreground.png" id="4_qk6tm"]
+[ext_resource type="Texture2D" uid="uid://dtqw3dytx2m64" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_text.png" id="5_b014v"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_hhfj5"]
+[ext_resource type="Texture2D" uid="uid://bkxarg3gqy03u" path="res://Sprites/Level Designs/Level 6 - Twist/Level 6 - Twist_tutorial text.png" id="6_2rbqq"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_7pend"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_pvsgi"]
+[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="10_2r1f6"]
+[ext_resource type="PackedScene" uid="uid://b0rp8q05ixdhq" path="res://Levels/Shift.tscn" id="10_mk3fe"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="12_swu3e"]
+[ext_resource type="Script" path="res://Levels/SimpleAnimateSprite.gd" id="13_0eii2"]
+
+[sub_resource type="Animation" id="Animation_funm5"]
+resource_name = "Cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4.4, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Back/Figures:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/StateMachine/Soul")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"overrideCutscene"
+}, {
+"args": [true],
+"method": &"showMe"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [NodePath("../Level Soul")],
+"method": &"retarget"
+}]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level Soul:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-11, -0.25, 0, 1.05, -2.5, -100, -1.2, -0.5, 0.25, 0, -100, -0.25, 0, 1.045, 2.5, -20, -1.38, -2, 0.25, 0),
+"times": PackedFloat32Array(2, 4.3, 5.1, 7.275)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Level Soul:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Environment/Parallax Layers/Mid/Text2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6.3, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_2poy2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Environment/Parallax Layers/Mid/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Environment/Parallax Layers/Back/Figures:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/StateMachine/Soul:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level Soul:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level Soul:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Environment/Parallax Layers/Mid/Text2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t31tv"]
+_data = {
+"Cutscene": SubResource("Animation_funm5"),
+"RESET": SubResource("Animation_2poy2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
+size = Vector2(2, 20)
+
+[node name="Seance" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Parallax Layers" type="Node2D" parent="Environment"]
+
+[node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_r0u7h")
+parallax = Vector2(-0.5, -0.5)
+
+[node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+z_index = -2
+texture = ExtResource("2_p33d7")
+
+[node name="Figures" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+texture = ExtResource("4_6h1gx")
+
+[node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_r0u7h")
+parallax = Vector2(0, 0)
+
+[node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
+
+[node name="@CollisionPolygon2D@601357" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(0, 368, 199, 368, 199, 363, 198, 363, 198, 344, 199, 344, 199, 343, 239, 343, 239, 342, 240, 342, 240, 341, 242, 341, 242, 340, 246, 340, 246, 341, 249, 341, 249, 340, 256, 340, 256, 337, 257, 337, 257, 332, 256, 332, 256, 331, 258, 331, 258, 327, 257, 327, 257, 324, 256, 324, 256, 327, 251, 327, 251, 315, 252, 315, 252, 313, 253, 313, 253, 312, 254, 312, 254, 311, 255, 311, 255, 309, 259, 309, 259, 308, 262, 308, 262, 307, 263, 307, 263, 304, 262, 304, 262, 292, 264, 292, 264, 291, 265, 291, 265, 289, 264, 289, 264, 288, 267, 288, 267, 287, 269, 287, 269, 283, 268, 283, 268, 281, 271, 281, 271, 280, 270, 280, 270, 279, 269, 279, 269, 278, 268, 278, 268, 277, 265, 277, 265, 279, 264, 279, 264, 281, 263, 281, 263, 283, 262, 283, 262, 275, 263, 275, 263, 274, 268, 274, 268, 273, 269, 273, 269, 272, 267, 272, 267, 268, 268, 268, 268, 267, 269, 267, 269, 265, 270, 265, 270, 264, 271, 264, 271, 263, 272, 263, 272, 262, 273, 262, 273, 261, 274, 261, 274, 260, 275, 260, 275, 259, 277, 259, 277, 258, 278, 258, 278, 257, 279, 257, 279, 256, 281, 256, 281, 255, 282, 255, 282, 254, 284, 254, 284, 253, 285, 253, 285, 252, 286, 252, 286, 251, 288, 251, 288, 250, 289, 250, 289, 249, 291, 249, 291, 248, 293, 248, 293, 247, 294, 247, 294, 246, 295, 246, 295, 245, 297, 245, 297, 244, 299, 244, 299, 243, 301, 243, 301, 242, 303, 242, 303, 241, 306, 241, 306, 240, 308, 240, 308, 239, 310, 239, 310, 238, 313, 238, 313, 237, 314, 237, 314, 231, 315, 231, 315, 220, 316, 220, 316, 193, 317, 193, 317, 183, 316, 183, 316, 180, 317, 180, 317, 175, 318, 175, 318, 174, 319, 174, 319, 173, 321, 173, 321, 174, 322, 174, 322, 175, 323, 175, 323, 180, 324, 180, 324, 183, 323, 183, 323, 193, 324, 193, 324, 220, 325, 220, 325, 231, 326, 231, 326, 237, 327, 237, 327, 238, 330, 238, 330, 239, 332, 239, 332, 240, 334, 240, 334, 241, 337, 241, 337, 242, 339, 242, 339, 243, 341, 243, 341, 244, 343, 244, 343, 245, 345, 245, 345, 246, 346, 246, 346, 247, 347, 247, 347, 248, 349, 248, 349, 249, 351, 249, 351, 250, 352, 250, 352, 251, 354, 251, 354, 252, 355, 252, 355, 253, 356, 253, 356, 254, 358, 254, 358, 255, 359, 255, 359, 256, 361, 256, 361, 257, 362, 257, 362, 258, 363, 258, 363, 259, 365, 259, 365, 260, 366, 260, 366, 261, 367, 261, 367, 262, 368, 262, 368, 263, 369, 263, 369, 264, 370, 264, 370, 265, 371, 265, 371, 267, 372, 267, 372, 268, 373, 268, 373, 272, 371, 272, 371, 273, 372, 273, 372, 274, 377, 274, 377, 275, 378, 275, 378, 283, 377, 283, 377, 281, 376, 281, 376, 279, 375, 279, 375, 277, 372, 277, 372, 278, 371, 278, 371, 279, 370, 279, 370, 280, 369, 280, 369, 281, 372, 281, 372, 283, 371, 283, 371, 287, 373, 287, 373, 288, 376, 288, 376, 289, 375, 289, 375, 291, 376, 291, 376, 292, 378, 292, 378, 304, 377, 304, 377, 307, 378, 307, 378, 308, 381, 308, 381, 309, 385, 309, 385, 311, 386, 311, 386, 312, 387, 312, 387, 313, 388, 313, 388, 315, 389, 315, 389, 326, 388, 326, 388, 327, 384, 327, 384, 324, 383, 324, 383, 327, 382, 327, 382, 331, 384, 331, 384, 332, 383, 332, 383, 337, 384, 337, 384, 341, 388, 341, 388, 342, 390, 342, 390, 343, 407, 343, 407, 344, 408, 344, 408, 343, 411, 343, 411, 344, 412, 344, 412, 345, 413, 345, 413, 358, 419, 358, 419, 359, 425, 359, 425, 360, 432, 360, 432, 361, 443, 361, 443, 360, 445, 360, 445, 361, 474, 361, 474, 362, 481, 362, 481, 363, 494, 363, 494, 364, 559, 364, 559, 365, 609, 365, 609, 366, 640, 366, 640, 0, 0, 0)
+
+[node name="@CollisionPolygon2D@601358" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(256, 323, 257, 323, 257, 322, 256, 322)
+
+[node name="@CollisionPolygon2D@601359" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(383, 323, 384, 323, 384, 322, 383, 322)
+
+[node name="@CollisionPolygon2D@601360" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(305, 328, 306, 328, 306, 332, 305, 332, 305, 337, 306, 337, 306, 344, 307, 344, 307, 351, 306, 351, 306, 349, 305, 349, 305, 357, 304, 357, 304, 351, 303, 351, 303, 357, 302, 357, 302, 349, 301, 349, 301, 351, 300, 351, 300, 346, 301, 346, 301, 343, 302, 343, 302, 341, 283, 341, 283, 344, 284, 344, 284, 347, 285, 347, 285, 357, 284, 357, 284, 384, 283, 384, 283, 386, 279, 386, 279, 385, 278, 385, 278, 359, 279, 359, 279, 357, 266, 357, 266, 361, 267, 361, 267, 389, 266, 389, 266, 391, 262, 39

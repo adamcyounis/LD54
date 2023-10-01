@@ -19,6 +19,10 @@ func physics_do():
 		complete()
 
 
+func stopMoving():
+	body.velocity = Vector2(0,0)
+	complete()
+
 func exit():
 	super()
 
