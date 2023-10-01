@@ -9,13 +9,14 @@ var xInput: float = 0.0;
 var shouldJump: bool = false
 
 var jumpAction: String = "ui_up"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func enter():
 	super()
-	sprite.hframes = 1
+	sprite.hframes = 7
 	sprite.set_texture(texture)
 	if shouldJump:
 		jump()
@@ -25,7 +26,7 @@ func do():
 	super()
 	check_x_input()
 	check_coyote_jump()
-	#setFrame()
+	setFrame()
 	if body.is_on_floor() and body.velocity.y >= 0:
 		complete()
 
@@ -33,8 +34,6 @@ func do():
 func physics_do():
 	super()
 	move()
-
-
 func move():
 	
 	if(xInput != 0):
@@ -52,8 +51,8 @@ func check_x_input():
 
 ## take the velocity of the body and map it to the appropriate sprite frame
 func setFrame():
-	var val =   remap(body.velocity.y, -jumpForce, jumpForce*2, 0, 13)
-	val = clamp(val, 0, 13)
+	var val =   remap(body.velocity.y, -jumpForce*0.5, jumpForce, 0, sprite.hframes-1)
+	val = clamp(val, 0, sprite.hframes-1)
 	sprite.frame =val
 
 func should_enter():

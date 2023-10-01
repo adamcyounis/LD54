@@ -1,5 +1,5 @@
 class_name PlayerIdle extends State
-
+@export var hFrames = 1;
 @export var fps = 10;
 @export var texture: Texture2D
 
@@ -7,7 +7,7 @@ func enter():
 	super()
 	sprite.set_texture(texture)
 	sprite.frame = 0
-	sprite.hframes = 1
+	sprite.hframes = hFrames
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

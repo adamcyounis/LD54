@@ -8,7 +8,7 @@ func enter():
 	
 func do():
 	#lerp towards playerPos
-	body.global_position = lerp(body.global_position, playerPos.global_position, 0.2)
+	body.global_position = lerp(body.global_position, playerPos.global_position, 0.12)
 
 	if(distance_to_target() < tolerance):
 		complete()

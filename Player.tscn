@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://idxyan3q5dh5"]
+[gd_scene load_steps=22 format=3 uid="uid://idxyan3q5dh5"]
 
 [ext_resource type="Script" path="res://BodyAndSoul.gd" id="1_ni6lb"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1t6e"]
@@ -7,11 +7,15 @@
 [ext_resource type="Script" path="res://Player States/PlayerIdle.gd" id="4_k111r"]
 [ext_resource type="Script" path="res://Player States/PlayerRun.gd" id="5_dlk8c"]
 [ext_resource type="Script" path="res://Player States/PlayerJump.gd" id="6_8dal4"]
+[ext_resource type="Texture2D" uid="uid://bcuyta8pws6xl" path="res://Sprites/Player/Player-Kneel.png" id="7_hwsno"]
 [ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
+[ext_resource type="Texture2D" uid="uid://cqr7526s0d2v7" path="res://Sprites/Player/Player-Run.png" id="8_2dhcu"]
 [ext_resource type="Script" path="res://Soul.gd" id="9_2ijyh"]
 [ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="10_2u1ji"]
+[ext_resource type="Texture2D" uid="uid://b5w2tqu135t2o" path="res://Sprites/Player/Player-Jump.png" id="10_og503"]
 [ext_resource type="Script" path="res://Fly.gd" id="10_x1r0k"]
 [ext_resource type="Script" path="res://SoulSpawn.gd" id="11_kftho"]
+[ext_resource type="Shader" path="res://colour_replace.gdshader" id="12_qkpsn"]
 [ext_resource type="Script" path="res://Levels/SoulDespawn.gd" id="12_sb3fs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwv1p"]
@@ -20,6 +24,11 @@ height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c38dy"]
 size = Vector2(1, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e1pby"]
+shader = ExtResource("12_qkpsn")
+shader_parameter/replace_color = Vector4(1, 0, 0, 1)
+shader_parameter/replacement_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mr4e6"]
 radius = 4.0
@@ -33,19 +42,24 @@ soul = NodePath("StateMachine/Soul")
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource("2_0jsn0")
 
-[node name="Body" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "wallSensors")]
+[node name="Body" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("myBody", "mySprite", "wallSensors", "kneel")]
 collision_layer = 4
 script = ExtResource("1_r1t6e")
 myBody = NodePath(".")
 mySprite = NodePath("Sprite2D")
-gravity = Vector2(0, 10)
+gravity = Vector2(0, 5.5)
 wallSensors = [NodePath("Area2D"), NodePath("Area2D2")]
+kneel = NodePath("StateMachine/Kneel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Body"]
 shape = SubResource("CapsuleShape2D_fwv1p")
 
 [node name="StateMachine" type="Node" parent="StateMachine/Body"]
 script = ExtResource("2_0jsn0")
+
+[node name="Kneel" type="Node" parent="StateMachine/Body/StateMachine"]
+script = ExtResource("4_k111r")
+texture = ExtResource("7_hwsno")
 
 [node name="PlayerGroundControl" type="Node" parent="StateMachine/Body/StateMachine" node_paths=PackedStringArray("run", "idle")]
 script = ExtResource("3_yiyx8")
@@ -54,20 +68,22 @@ idle = NodePath("PlayerIdle")
 
 [node name="PlayerIdle" type="Node" parent="StateMachine/Body/StateMachine/PlayerGroundControl"]
 script = ExtResource("4_k111r")
+fps = 8
 texture = ExtResource("7_kw0mk")
 
 [node name="PlayerRun" type="Node" parent="StateMachine/Body/StateMachine/PlayerGroundControl"]
 script = ExtResource("5_dlk8c")
-texture = ExtResource("7_kw0mk")
-speed = 70.0
+texture = ExtResource("8_2dhcu")
+speed = 60.0
+fps = 12.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Body/StateMachine/PlayerGroundControl/PlayerRun"]
 
 [node name="PlayerJump" type="Node" parent="StateMachine/Body/StateMachine"]
 script = ExtResource("6_8dal4")
-jumpForce = 150.0
-texture = ExtResource("7_kw0mk")
-speed = 70.0
+jumpForce = 110.0
+texture = ExtResource("10_og503")
+speed = 60.0
 
 [node name="Area2D" type="Area2D" parent="StateMachine/Body"]
 
@@ -82,10 +98,12 @@ position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_c38dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
+material = SubResource("ShaderMaterial_e1pby")
 texture = ExtResource("7_kw0mk")
 
 [node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("bodyState", "myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("9_2ijyh")
 bodyState = NodePath("../Body")
 myBody = NodePath(".")

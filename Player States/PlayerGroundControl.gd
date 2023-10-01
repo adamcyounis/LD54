@@ -2,6 +2,7 @@ class_name PlayerGroundControl extends State
 
 @export var run : PlayerRun
 @export var idle : PlayerIdle
+
 var xInput: float = 0.0; 
 
 func enter():

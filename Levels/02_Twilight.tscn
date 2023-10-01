@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_f4blh"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_6e7cf"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_cu0pi"]
-[ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="8_x3quf"]
+[ext_resource type="PackedScene" uid="uid://4yas8a0hg7og" path="res://Levels/04_The Gap.tscn" id="8_gwfvx"]
 
 [node name="Moves with Player" type="Node2D"]
 
@@ -28,13 +28,13 @@ parallax = Vector2(0, 0)
 
 [node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
 
-[node name="@CollisionPolygon2D@694154" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+[node name="@CollisionPolygon2D@33226" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
 position = Vector2(-320, -320)
 polygon = PackedVector2Array(0, 371, 30, 371, 30, 372, 63, 372, 63, 373, 154, 373, 154, 372, 172, 372, 172, 370, 173, 370, 173, 369, 184, 369, 184, 368, 199, 368, 199, 363, 198, 363, 198, 344, 199, 344, 199, 343, 239, 343, 239, 342, 240, 342, 240, 341, 242, 341, 242, 340, 246, 340, 246, 341, 249, 341, 249, 340, 251, 340, 251, 314, 272, 314, 272, 315, 298, 315, 298, 316, 372, 316, 372, 337, 373, 337, 373, 338, 376, 338, 376, 339, 378, 339, 378, 340, 379, 340, 379, 341, 388, 341, 388, 342, 390, 342, 390, 343, 442, 343, 442, 360, 445, 360, 445, 361, 474, 361, 474, 362, 481, 362, 481, 363, 494, 363, 494, 364, 559, 364, 559, 365, 609, 365, 609, 366, 640, 366, 640, 0, 0, 0)
 
-[node name="@CollisionPolygon2D@694155" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+[node name="@CollisionPolygon2D@33227" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
 position = Vector2(-320, -320)
-polygon = PackedVector2Array(322, 375, 323, 375, 323, 384, 324, 384, 324, 385, 323, 385, 323, 391, 322, 391, 322, 392, 300, 392, 300, 391, 301, 391, 301, 390, 300, 390, 300, 389, 301, 389, 301, 387, 302, 387, 302, 383, 277, 383, 277, 387, 278, 387, 278, 392, 199, 392, 199, 380, 189, 380, 189, 381, 178, 381, 178, 382, 159, 382, 159, 383, 136, 383, 136, 384, 127, 384, 127, 385, 60, 385, 60, 384, 27, 384, 27, 383, 0, 383, 0, 640, 640, 640, 640, 379, 638, 379, 638, 378, 606, 378, 606, 377, 556, 377, 556, 376, 491, 376, 491, 375, 480, 375, 480, 374, 472, 374, 472, 373, 445, 373, 445, 392, 346, 392, 346, 380, 345, 380, 345, 379, 346, 379, 346, 378, 345, 378, 345, 377, 346, 377, 346, 375, 347, 375, 347, 371, 322, 371)
+polygon = PackedVector2Array(353, 375, 354, 375, 354, 384, 355, 384, 355, 385, 354, 385, 354, 391, 353, 391, 353, 392, 331, 392, 331, 391, 332, 391, 332, 390, 331, 390, 331, 389, 332, 389, 332, 387, 333, 387, 333, 383, 308, 383, 308, 387, 309, 387, 309, 392, 199, 392, 199, 380, 189, 380, 189, 381, 178, 381, 178, 382, 159, 382, 159, 383, 136, 383, 136, 384, 127, 384, 127, 385, 60, 385, 60, 384, 27, 384, 27, 383, 0, 383, 0, 640, 640, 640, 640, 379, 638, 379, 638, 378, 606, 378, 606, 377, 556, 377, 556, 376, 491, 376, 491, 375, 480, 375, 480, 374, 472, 374, 472, 373, 445, 373, 445, 392, 377, 392, 377, 380, 376, 380, 376, 379, 377, 379, 377, 378, 376, 378, 376, 377, 377, 377, 377, 375, 378, 375, 378, 371, 353, 371)
 
 [node name="Level2Midground" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
 texture = ExtResource("3_6gcy7")
@@ -59,16 +59,17 @@ texture = ExtResource("4_sarow")
 
 [node name="Player" parent="." instance=ExtResource("5_f4blh")]
 position = Vector2(-66, 61)
+hasSoul = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(0, 42)
 script = ExtResource("6_6e7cf")
 target = NodePath("../Player/StateMachine/Soul")
 followSpeed = 10.0
-magnitude = 0.2
+magnitude = 0.5
 
 [node name="Door" parent="." instance=ExtResource("7_cu0pi")]
-position = Vector2(78, 59)
-nextScene = ExtResource("8_x3quf")
+position = Vector2(98, 52)
+nextScene = ExtResource("8_gwfvx")
 
 [editable path="Player"]

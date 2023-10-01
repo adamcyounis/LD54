@@ -13,6 +13,7 @@ func _ready():
 	body = myBody
 	sprite = mySprite
 	setup_tree()
+	set_state(despawn)
 
 func enter():
 	super()

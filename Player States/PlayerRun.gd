@@ -6,7 +6,7 @@ class_name PlayerRun extends State
 
 
 var xInput: float = 0.0; 
-var fps: float = 13.0
+@export var fps: float = 13.0
 
 
 var currentFrame: int = 0
@@ -16,7 +16,7 @@ func enter():
 	super()
 	check_x_input()
 	sprite.texture = texture
-	sprite.hframes = 1
+	sprite.hframes = 8
 
 func do():
 	super()

@@ -39,6 +39,7 @@ func go_to_level(nextScene: PackedScene):
 	for child in get_children():
 		child.queue_free()
 	
+	await get_tree().create_timer(0.1).timeout
 	load_scene(nextScene)
 
 

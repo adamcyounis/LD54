@@ -8,7 +8,9 @@ class_name Player extends State
 @export var gravity: Vector2
 @export var wallSensors: Array [Area2D]
 
+@export var kneel: PlayerIdle
 var xInput: float = 0.0; 
+var mat : Material
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
@@ -16,11 +18,12 @@ func _ready():
 	sprite = mySprite
 	setup_tree()
 	GameManager.set_player(self)
+	mat = sprite.material
 
 func enter():
 	super()
 	set_natural_state()
-
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func do():
 	super()

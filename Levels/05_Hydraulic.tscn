@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://bip015y6aa4dl"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_rpcmj"]
+[ext_resource type="Texture2D" uid="uid://cws71uy10b84j" path="res://Sprites/Level Designs/Level 5/Level 5_background.png" id="2_5mbn3"]
+[ext_resource type="Texture2D" uid="uid://dmqwjbbm1f6ky" path="res://Sprites/Level Designs/Level 5/Level 5_midground.png" id="3_4idkj"]
+[ext_resource type="Texture2D" uid="uid://b6w37csbgrjib" path="res://Sprites/Level Designs/Level 5/Level 5_foreground.png" id="4_3rt1j"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_dpdyd"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_cl7s3"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_vlehr"]
+[ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="8_rpdtn"]
+[ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="9_a0lhn"]
+[ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="10_fbhom"]
+
+[node name="Moves with Player" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Parallax Layers" type="Node2D" parent="Environment"]
+
+[node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_rpcmj")
+parallax = Vector2(1, 0)
+
+[node name="Level1Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+texture = ExtResource("2_5mbn3")
+
+[node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_rpcmj")
+parallax = Vector2(0, 0)
+
+[node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
+
+[node name="@CollisionPolygon2D@173349" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(0, 640, 640, 640, 640, 0, 356, 0, 356, 34, 355, 34, 355, 62, 354, 62, 354, 77, 353, 77, 353, 108, 352, 108, 352, 123, 351, 123, 351, 163, 350, 163, 350, 164, 349, 164, 349, 165, 348, 165, 348, 166, 347, 166, 347, 167, 346, 167, 346, 168, 345, 168, 345, 170, 344, 170, 344, 175, 343, 175, 343, 176, 342, 176, 342, 177, 341, 177, 341, 178, 340, 178, 340, 179, 338, 179, 338, 180, 337, 180, 337, 182, 336, 182, 336, 183, 335, 183, 335, 184, 334, 184, 334, 186, 333, 186, 333, 187, 332, 187, 332, 188, 331, 188, 331, 208, 332, 208, 332, 207, 333, 207, 333, 206, 334, 206, 334, 205, 335, 205, 335, 236, 333, 236, 333, 239, 332, 239, 332, 243, 331, 243, 331, 252, 332, 252, 332, 253, 333, 253, 333, 275, 334, 275, 334, 276, 335, 276, 335, 277, 336, 277, 336, 278, 337, 278, 337, 279, 338, 279, 338, 312, 339, 312, 339, 313, 338, 313, 338, 316, 337, 316, 337, 325, 336, 325, 336, 336, 337, 336, 337, 338, 338, 338, 338, 337, 345, 337, 345, 336, 363, 336, 363, 297, 362, 297, 362, 296, 360, 296, 360, 297, 355, 297, 355, 296, 354, 296, 354, 295, 353, 295, 353, 294, 352, 294, 352, 293, 351, 293, 351, 288, 352, 288, 352, 287, 353, 287, 353, 286, 354, 286, 354, 285, 355, 285, 355, 284, 356, 284, 356, 283, 358, 283, 358, 282, 357, 282, 357, 270, 358, 270, 358, 269, 359, 269, 359, 268, 360, 268, 360, 267, 361, 267, 361, 253, 362, 253, 362, 248, 361, 248, 361, 234, 362, 234, 362, 230, 363, 230, 363, 229, 364, 229, 364, 228, 365, 228, 365, 227, 366, 227, 366, 226, 367, 226, 367, 225, 368, 225, 368, 224, 369, 224, 369, 223, 370, 223, 370, 222, 375, 222, 375, 223, 376, 223, 376, 224, 377, 224, 377, 225, 378, 225, 378, 226, 379, 226, 379, 264, 380, 264, 380, 269, 379, 269, 379, 274, 378, 274, 378, 283, 379, 283, 379, 284, 380, 284, 380, 289, 379, 289, 379, 290, 378, 290, 378, 291, 377, 291, 377, 292, 376, 292, 376, 346, 377, 346, 377, 352, 380, 352, 380, 353, 381, 353, 381, 354, 382, 354, 382, 355, 383, 355, 383, 356, 384, 356, 384, 357, 385, 357, 385, 358, 386, 358, 386, 359, 387, 359, 387, 360, 388, 360, 388, 361, 390, 361, 390, 362, 407, 362, 407, 363, 411, 363, 411, 364, 428, 364, 428, 365, 429, 365, 429, 366, 430, 366, 430, 367, 431, 367, 431, 368, 432, 368, 432, 375, 431, 375, 431, 376, 430, 376, 430, 383, 429, 383, 429, 384, 427, 384, 427, 385, 424, 385, 424, 386, 382, 386, 382, 387, 384, 387, 384, 388, 372, 388, 372, 380, 371, 380, 371, 379, 370, 379, 370, 375, 371, 375, 371, 373, 356, 373, 356, 375, 357, 375, 357, 381, 356, 381, 356, 382, 355, 382, 355, 388, 340, 388, 340, 389, 292, 389, 292, 390, 291, 390, 291, 389, 280, 389, 280, 390, 279, 390, 279, 389, 264, 389, 264, 388, 265, 388, 265, 387, 235, 387, 235, 388, 221, 388, 221, 387, 220, 387, 220, 386, 219, 386, 219, 385, 218, 385, 218, 384, 217, 384, 217, 379, 218, 379, 218, 378, 219, 378, 219, 377, 220, 377, 220, 376, 221, 376, 221, 375, 222, 375, 222, 374, 221, 374, 221, 369, 222, 369, 222, 368, 223, 368, 223, 367, 224, 367, 224, 366, 225, 366, 225, 365, 229, 365, 229, 364, 241, 364, 241, 365, 246, 365, 246, 364, 247, 364, 247, 363, 248, 363, 248, 362, 249, 362, 249, 359, 250, 359, 250, 347, 249, 347, 249, 341, 251, 341, 251, 340, 252, 340, 252, 339, 256, 339, 256, 338, 260, 338, 260, 337, 265, 337, 265, 336, 270, 336, 270, 335, 273, 335, 273, 334, 277, 334, 277, 333, 278, 333, 278, 332, 279, 332, 279, 330, 278, 330, 278, 326, 277, 326, 277, 325, 276, 325, 276, 321, 275, 321, 275, 318, 274, 318, 274, 316, 273, 316, 273, 307, 272, 307, 272, 297, 273, 297, 273, 234, 272, 234, 272, 229, 273, 229, 273, 228, 274, 228, 274, 227, 275, 227, 275, 226, 276, 226, 276, 225, 277, 225, 277, 224, 278, 224, 278, 223, 279, 223, 279, 222, 280, 222, 280, 221, 281, 221, 281, 220, 287, 220, 287, 221, 288, 221, 288, 222, 289, 222, 289, 223, 290, 223, 290, 224, 291, 224, 291, 267, 290, 267, 290, 279, 289, 279, 289, 299, 290, 299, 290, 300, 291, 300, 291, 301, 292, 301, 292, 302, 293, 302, 293, 308, 294, 308, 294, 311, 295, 311, 295, 332, 294, 332, 294, 336, 293, 336, 293, 343, 294, 343, 294, 350, 295, 350, 295, 352, 296, 352, 296, 354, 297, 354, 297, 355, 298, 355, 298, 357, 300, 357, 300, 358, 302, 358, 302, 359, 303, 359, 303, 360, 304, 360, 304, 361, 305, 361, 305, 362, 306, 362, 306, 363, 307, 363, 307, 364, 308, 364, 308, 363, 309, 363, 309, 362, 310, 362, 310, 355, 311, 355, 311, 344, 312, 344, 312, 339, 311, 339, 311, 338, 310, 338, 310, 320, 309, 320, 309, 318, 308, 318, 308, 307, 309, 307, 309, 306, 310, 306, 310, 305, 311, 305, 311, 304, 312, 304, 312, 303, 313, 303, 313, 302, 314, 302, 314, 301, 315, 301, 315, 300, 316, 300, 316, 283, 317, 283, 317, 256, 318, 256, 318, 250, 317, 250, 317, 230, 318, 230, 318, 183, 319, 183, 319, 182, 320, 182, 320, 181, 321, 181, 321, 180, 322, 180, 322, 179, 323, 179, 323, 178, 324, 178, 324, 176, 325, 176, 325, 175, 326, 175, 326, 173, 327, 173, 327, 170, 328, 170, 328, 169, 329, 169, 329, 168, 330, 168, 330, 166, 331, 166, 331, 165, 332, 165, 332, 164, 333, 164, 333, 162, 334, 162, 334, 161, 335, 161, 335, 160, 336, 160, 336, 157, 337, 157, 337, 156, 338, 156, 338, 155, 339, 155, 339, 154, 340, 154, 340, 153, 345, 153, 345, 154, 346, 154, 346, 155, 347, 155, 347, 40, 348, 40, 348, 17, 349, 17, 349, 0, 0, 0)
+
+[node name="Level1Midground" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("3_4idkj")
+
+[node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_rpcmj")
+parallax = Vector2(-2, -2)
+
+[node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
+
+[node name="@CollisionPolygon2D@136833" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(312, 138, 313, 138, 313, 137, 312, 137)
+
+[node name="@CollisionPolygon2D@136834" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(312, 353, 311, 353, 311, 362, 337, 362, 337, 360, 338, 360, 338, 358, 339, 358, 339, 350, 338, 350, 338, 341, 337, 341, 337, 337, 312, 337)
+
+[node name="@CollisionPolygon2D@136835" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(303, 388, 302, 388, 302, 391, 303, 391, 303, 408, 302, 408, 302, 410, 301, 410, 301, 411, 300, 411, 300, 412, 299, 412, 299, 413, 297, 413, 297, 414, 296, 414, 296, 415, 295, 415, 295, 416, 294, 416, 294, 417, 293, 417, 293, 418, 292, 418, 292, 419, 290, 419, 290, 421, 291, 421, 291, 442, 290, 442, 290, 455, 359, 455, 359, 407, 358, 407, 358, 403, 357, 403, 357, 404, 355, 404, 355, 405, 353, 405, 353, 406, 348, 406, 348, 405, 346, 405, 346, 400, 347, 400, 347, 389, 346, 389, 346, 387, 345, 387, 345, 386, 303, 386)
+
+[node name="@CollisionPolygon2D@136836" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(577, 524, 576, 524, 576, 526, 578, 526, 578, 510, 577, 510)
+
+[node name="Level1Foreground" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+texture = ExtResource("4_3rt1j")
+
+[node name="Player" parent="." instance=ExtResource("5_dpdyd")]
+position = Vector2(-71, 56)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(0, 33.09)
+script = ExtResource("6_cl7s3")
+target = NodePath("../Level Soul")
+followSpeed = 10.0
+magnitude = 0.9
+
+[node name="Door" parent="." instance=ExtResource("7_vlehr")]
+position = Vector2(82, 53)
+nextScene = ExtResource("8_rpdtn")
+
+[node name="Soul Point 1" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Soul Point 2" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="Level Soul" type="Sprite2D" parent="." node_paths=PackedStringArray("points")]
+texture = ExtResource("9_a0lhn")
+script = ExtResource("10_fbhom")
+points = [NodePath("../Soul Point 1"), NodePath("../Soul Point 2")]
+interval = 2.0
+
+[editable path="Player"]

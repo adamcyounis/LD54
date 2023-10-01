@@ -1,4 +1,4 @@
-extends Camera2D
+extends Node2D
 
 @export var points: Array[Node2D]
 @export var interval: float = 3

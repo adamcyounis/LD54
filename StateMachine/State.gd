@@ -30,7 +30,6 @@ func set_state(newState : State, overRide:bool = false):
 		state.enter()
 
 func enter():
-	print(name + " enter")
 	isComplete = false;
 	startTime = Time.get_ticks_msec();
 
@@ -43,7 +42,6 @@ func physics_do():
 		state.physics_do()
 
 func complete():
-	print(name + " complete")
 	isComplete = true
 
 func exit():
