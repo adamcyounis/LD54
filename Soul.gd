@@ -7,7 +7,7 @@ class_name Soul extends State
 @export var fly: Fly
 @export var spawn: SoulSpawn
 @export var despawn: SoulDespawn
-
+var fps = 8
 func _ready():
 	super()
 	body = myBody
@@ -32,14 +32,15 @@ func do():
 			set_state(despawn, true)
 		elif(state == despawn):
 			complete()
-
+	
 	
 
 func dismiss():
 	set_state(despawn, true)
 
 func _process(_delta):
-
+	update_sprite()
+	
 	if(is_active_state() && !body.visible):	
 		showMe(true)
 		
@@ -71,3 +72,8 @@ func collideMe(collide: bool):
 		collider.disabled = false
 	else:
 		collider.disabled = true
+
+func update_sprite():
+	var millis = Time.get_ticks_msec()
+	var sec = millis/1000.0
+	sprite.frame = (int(sec*fps)) % sprite.hframes;

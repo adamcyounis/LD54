@@ -17,7 +17,7 @@ func enter():
 	check_x_input()
 	sprite.texture = texture
 	sprite.hframes = 8
-
+	sprite.frame = 0
 func do():
 	super()
 	check_x_input()
@@ -57,5 +57,7 @@ func update_frame():
 	sprite.frame = (int(sec*fps)) % sprite.hframes;
 
 func playStepSound():
-	#audio_stream_player.play()
+	print("step")
+	audio_stream_player.pitch_scale = 1.0 + randf_range(-0.1, 0.1)
+	audio_stream_player.play()
 	pass

@@ -1,10 +1,11 @@
 class_name SoulDespawn extends State
 @export var playerPos: Node2D
 @export var tolerance: float = 5
-
+@export var audio: AudioStreamPlayer
 func enter():
 	super()
 	body.velocity = Vector2(0,0)
+	play_sound()
 	
 func do():
 	#lerp towards playerPos
@@ -18,3 +19,6 @@ func distance_to_target():
 
 func exit():
 	super()
+
+func play_sound():
+	audio.play()

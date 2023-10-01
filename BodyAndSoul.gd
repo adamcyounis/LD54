@@ -1,4 +1,4 @@
-extends Node2D
+class_name BodyAndSoul extends Node2D
 @export var machine: StateMachine
 
 @export var body: Player
@@ -6,9 +6,13 @@ extends Node2D
 var mat : Material
 @export var hasSoul: bool = true
 @export var startKneel: bool =false
+@export var arrow: Arrow
+@export var aboveHeadMarker: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.singleton.bodyAndSoul = self
+
 	machine.setup_tree()
 	machine.set_state(body)
 
@@ -18,13 +22,15 @@ func _ready():
 	mat = body.sprite.material
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+
+	set_arrow_target()
 	machine.do()
 
 	if(machine.state.isComplete):
 		if(machine.state == soul):
 			machine.set_state(body, true)
 
-	if(Input.is_action_just_pressed("return-to-player")and hasSoul):
+	if(Input.is_action_just_pressed("return-to-player") and hasSoul and soul.state != soul.despawn):
 		machine.set_state(soul)
 		body.set_state(body.kneel, true)
 		soul.set_state(soul.despawn, true)
@@ -47,3 +53,17 @@ func _process(_delta):
 func _physics_process(_delta):
 	machine.physics_do()
 
+func set_arrow_target():
+
+	var soulIsOut =	soul.state == soul.fly
+
+	arrow.visible = soulIsOut and (machine.state == body or arrow.timeSinceTargetSwitch() < 0.1)
+	
+	if(machine.state == body):
+		arrow.target = aboveHeadMarker
+		soul.sprite.modulate.a = 0.5
+	else:
+		arrow.target = soul.sprite
+		soul.sprite.modulate.a = 1
+
+	

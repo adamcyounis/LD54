@@ -1,26 +1,177 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk4ptr42f61f1"]
+[gd_scene load_steps=16 format=3 uid="uid://bk4ptr42f61f1"]
 
 [ext_resource type="Script" path="res://Scripts/00_GameManager.gd" id="1_1ig5f"]
 [ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="2_3stm7"]
 [ext_resource type="PackedScene" uid="uid://bip015y6aa4dl" path="res://Levels/05_Hydraulic.tscn" id="2_hsw4w"]
 [ext_resource type="PackedScene" uid="uid://4yas8a0hg7og" path="res://Levels/04_The Gap.tscn" id="2_nk7th"]
+[ext_resource type="PackedScene" uid="uid://d1uydp6fdejnq" path="res://Levels/Seance.tscn" id="2_og772"]
 [ext_resource type="PackedScene" uid="uid://cvfb61h4evvk7" path="res://Levels/01_The Graveyard.tscn" id="2_sxqsy"]
 [ext_resource type="PackedScene" uid="uid://drmepl3nm5p3l" path="res://Levels/02_Twilight.tscn" id="4_jgj4w"]
+[ext_resource type="Texture2D" uid="uid://7kbs8abcvcd1" path="res://Sprites/Fader.png" id="7_2scr3"]
+[ext_resource type="Texture2D" uid="uid://pcfmlv7hcin8" path="res://Sprites/Fader-Rotated.png" id="8_b7m78"]
 
-[sub_resource type="Gradient" id="Gradient_vneac"]
-colors = PackedColorArray(0.0745098, 0.0745098, 0.113725, 1, 0.0745098, 0.0745098, 0.113725, 1)
+[sub_resource type="Animation" id="Animation_b23xw"]
+resource_name = "ForwardStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(180, -90), Vector2(-90, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_2scr3")]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hu20d"]
-gradient = SubResource("Gradient_vneac")
-fill_from = Vector2(0.611111, 0.538462)
+[sub_resource type="Animation" id="Animation_0yc7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(180, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_2scr3")]
+}
 
-[node name="GameManager" type="Node2D"]
-position = Vector2(-1, 0)
+[sub_resource type="Animation" id="Animation_hw7t2"]
+resource_name = "ForwardEnd"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -90), Vector2(-360, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_2scr3")]
+}
+
+[sub_resource type="Animation" id="Animation_akn6j"]
+resource_name = "DownStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -360), Vector2(-90, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_b7m78")]
+}
+
+[sub_resource type="Animation" id="Animation_o6n0n"]
+resource_name = "DownEnd"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -90), Vector2(-90, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_b7m78")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iv48i"]
+_data = {
+"DownEnd": SubResource("Animation_o6n0n"),
+"DownStart": SubResource("Animation_akn6j"),
+"ForwardEnd": SubResource("Animation_hw7t2"),
+"ForwardStart": SubResource("Animation_b23xw"),
+"RESET": SubResource("Animation_0yc7w")
+}
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container")]
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_hsw4w"), ExtResource("2_3stm7")])
+scenes = Array[PackedScene]([ExtResource("2_3stm7"), ExtResource("2_og772"), ExtResource("2_sxqsy"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_hsw4w")])
+sceneFader = NodePath("AnimationPlayer")
+container = NodePath("Container")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Container" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = SubResource("GradientTexture2D_hu20d")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Wiper" type="TextureRect" parent="CanvasLayer"]
+offset_left = 180.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = 230.0
+texture = ExtResource("7_2scr3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iv48i")
+}

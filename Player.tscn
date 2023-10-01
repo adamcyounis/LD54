@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://idxyan3q5dh5"]
+[gd_scene load_steps=26 format=3 uid="uid://idxyan3q5dh5"]
 
 [ext_resource type="Script" path="res://BodyAndSoul.gd" id="1_ni6lb"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_r1t6e"]
@@ -11,12 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://c2bhdodh26dhy" path="res://Sprites/Player/Player-Idle.png" id="7_kw0mk"]
 [ext_resource type="Texture2D" uid="uid://cqr7526s0d2v7" path="res://Sprites/Player/Player-Run.png" id="8_2dhcu"]
 [ext_resource type="Script" path="res://Soul.gd" id="9_2ijyh"]
-[ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="10_2u1ji"]
 [ext_resource type="Texture2D" uid="uid://b5w2tqu135t2o" path="res://Sprites/Player/Player-Jump.png" id="10_og503"]
+[ext_resource type="AudioStream" uid="uid://b75ff4xdw1q0j" path="res://Sound/Footstep.ogg" id="10_rf1yh"]
 [ext_resource type="Script" path="res://Fly.gd" id="10_x1r0k"]
 [ext_resource type="Script" path="res://SoulSpawn.gd" id="11_kftho"]
 [ext_resource type="Shader" path="res://colour_replace.gdshader" id="12_qkpsn"]
 [ext_resource type="Script" path="res://Levels/SoulDespawn.gd" id="12_sb3fs"]
+[ext_resource type="AudioStream" uid="uid://dynvbocgxolhm" path="res://Sound/Soul Out.ogg" id="17_g30kk"]
+[ext_resource type="AudioStream" uid="uid://dsgrd2apk6rus" path="res://Sound/Soul In.ogg" id="19_yqy3f"]
+[ext_resource type="Texture2D" uid="uid://bb6w2f0f1pyle" path="res://Sprites/Soul-Hover.png" id="20_0263p"]
+[ext_resource type="Script" path="res://Arrow.gd" id="21_tbxxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwv1p"]
 radius = 4.01
@@ -33,11 +37,14 @@ shader_parameter/replacement_color = Vector4(1, 1, 1, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mr4e6"]
 radius = 4.0
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("machine", "body", "soul")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("machine", "body", "soul", "arrow", "aboveHeadMarker")]
+position = Vector2(1, -1)
 script = ExtResource("1_ni6lb")
 machine = NodePath("StateMachine")
 body = NodePath("StateMachine/Body")
 soul = NodePath("StateMachine/Soul")
+arrow = NodePath("StateMachine/Arrow")
+aboveHeadMarker = NodePath("StateMachine/Body/Above Head Marker")
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource("2_0jsn0")
@@ -78,12 +85,17 @@ speed = 60.0
 fps = 12.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Body/StateMachine/PlayerGroundControl/PlayerRun"]
+stream = ExtResource("10_rf1yh")
 
-[node name="PlayerJump" type="Node" parent="StateMachine/Body/StateMachine"]
+[node name="PlayerJump" type="Node" parent="StateMachine/Body/StateMachine" node_paths=PackedStringArray("audio_stream_player")]
 script = ExtResource("6_8dal4")
 jumpForce = 110.0
 texture = ExtResource("10_og503")
 speed = 60.0
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Body/StateMachine/PlayerJump"]
+stream = ExtResource("10_rf1yh")
 
 [node name="Area2D" type="Area2D" parent="StateMachine/Body"]
 
@@ -100,6 +112,9 @@ shape = SubResource("RectangleShape2D_c38dy")
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Body"]
 material = SubResource("ShaderMaterial_e1pby")
 texture = ExtResource("7_kw0mk")
+
+[node name="Above Head Marker" type="Node2D" parent="StateMachine/Body"]
+position = Vector2(1, -15)
 
 [node name="Soul" type="CharacterBody2D" parent="StateMachine" node_paths=PackedStringArray("bodyState", "myBody", "mySprite", "collider", "fly", "spawn", "despawn")]
 collision_layer = 2
@@ -118,17 +133,35 @@ script = ExtResource("10_x1r0k")
 maxSpeed = 150.0
 decay = 0.93
 
-[node name="Spawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos")]
+[node name="Spawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos", "audio")]
 script = ExtResource("11_kftho")
 spawnForce = 100.0
 playerPos = NodePath("../../Body")
+audio = NodePath("AudioStreamPlayer")
 
-[node name="Despawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Soul/Spawn"]
+stream = ExtResource("17_g30kk")
+
+[node name="Despawn" type="Node" parent="StateMachine/Soul" node_paths=PackedStringArray("playerPos", "audio")]
 script = ExtResource("12_sb3fs")
 playerPos = NodePath("../../Body")
+audio = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/Soul/Despawn"]
+stream = ExtResource("19_yqy3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Soul"]
 shape = SubResource("CircleShape2D_mr4e6")
 
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Soul"]
-texture = ExtResource("10_2u1ji")
+texture = ExtResource("20_0263p")
+hframes = 7
+
+[node name="Arrow" type="Sprite2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+position = Vector2(3, -17)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_0263p")
+hframes = 7
+script = ExtResource("21_tbxxm")
+target = NodePath("../Body")
+followSpeed = 15.0

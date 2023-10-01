@@ -23,18 +23,7 @@ func _ready():
 func _process(_delta):
 	if(Engine.is_editor_hint()):
 		if recalculateGeometry:
-			
-
-			var children : Array[Node] = find_children("*","Sprite2D", true)
-			var bodies : Array[Node] = find_children("*","StaticBody2D", true)
-			
-			if children.size() > 0 and bodies.size() > 0:
-				var body = find_children("*","StaticBody2D", true)[0]
-				var sprite = find_children("*","Sprite2D", true)[0]
-				print("recalculating geometry")
-				print(sprite)
-				create_polygon2d_from_sprite2d(sprite, body)			
-			recalculateGeometry = false
+			try_recalculate_geometry()
 		return
 	else:
 		targetPos = camPos()
@@ -44,6 +33,19 @@ func _process(_delta):
 
 func camPos():
 	return get_viewport().get_camera_2d().position
+
+
+func try_recalculate_geometry():
+	var children : Array[Node] = find_children("*","Sprite2D", true)
+	var bodies : Array[Node] = find_children("*","StaticBody2D", true)
+	
+	if children.size() > 0 and bodies.size() > 0:
+		var body = find_children("*","StaticBody2D", true)[0]
+		var sprite = find_children("*","Sprite2D", true)[0]
+		print("recalculating geometry")
+		print(sprite)
+		create_polygon2d_from_sprite2d(sprite, body)			
+	recalculateGeometry = false
 
 
 func create_polygon2d_from_sprite2d(_sprite: Sprite2D, _body: StaticBody2D, ):

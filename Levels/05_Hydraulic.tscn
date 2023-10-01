@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_dpdyd"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_cl7s3"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_vlehr"]
-[ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="8_rpdtn"]
+[ext_resource type="PackedScene" uid="uid://d1uydp6fdejnq" path="res://Levels/Seance.tscn" id="8_l1jg7"]
 [ext_resource type="Texture2D" uid="uid://btuocstewwbmx" path="res://Sprites/Player/Player-Soul.png" id="9_a0lhn"]
 [ext_resource type="Script" path="res://Scripts/CameraPointCycle.gd" id="10_fbhom"]
 
@@ -38,6 +38,7 @@ polygon = PackedVector2Array(0, 640, 640, 640, 640, 0, 356, 0, 356, 34, 355, 34,
 texture = ExtResource("3_4idkj")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
+position = Vector2(2, -3)
 script = ExtResource("1_rpcmj")
 parallax = Vector2(-2, -2)
 
@@ -74,7 +75,7 @@ magnitude = 0.9
 
 [node name="Door" parent="." instance=ExtResource("7_vlehr")]
 position = Vector2(82, 53)
-nextScene = ExtResource("8_rpdtn")
+nextScene = ExtResource("8_l1jg7")
 
 [node name="Soul Point 1" type="Node2D" parent="."]
 position = Vector2(0, 32)

@@ -10,14 +10,17 @@ var shouldJump: bool = false
 
 var jumpAction: String = "ui_up"
 
+@export var audio_stream_player: AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func enter():
 	super()
-	sprite.hframes = 7
 	sprite.set_texture(texture)
+	sprite.hframes = 7
+	sprite.frame = 0
+
 	if shouldJump:
 		jump()
 
@@ -28,6 +31,7 @@ func do():
 	check_coyote_jump()
 	setFrame()
 	if body.is_on_floor() and body.velocity.y >= 0:
+		playJumpSound()
 		complete()
 
 
@@ -73,3 +77,8 @@ func is_inputting_jump():
 func exit():
 	super()
 	shouldJump = false
+
+func playJumpSound():
+	var t = time()/3000.0
+	audio_stream_player.pitch_scale = 0.8 + randf_range(-0.05, 0.05) - t
+	audio_stream_player.play()
