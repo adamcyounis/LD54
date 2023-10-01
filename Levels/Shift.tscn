@@ -27,6 +27,7 @@ script = ExtResource("1_gbh2m")
 parallax = Vector2(0.5, 0.5)
 
 [node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+z_index = -2
 texture = ExtResource("2_d8jgr")
 
 [node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]

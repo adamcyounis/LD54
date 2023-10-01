@@ -24,6 +24,7 @@ size = Vector2(336, 20)
 [node name="Parallax Layers" type="Node2D" parent="Environment"]
 
 [node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+z_index = -2
 script = ExtResource("1_dbgv5")
 parallax = Vector2(1, 0)
 

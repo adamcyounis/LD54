@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://4woefr12yxn3"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_6e7ec"]
+[ext_resource type="Texture2D" uid="uid://c6e36t7oftav3" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_background.png" id="2_bj81s"]
+[ext_resource type="Texture2D" uid="uid://cf7g6o76dlwn" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_midground.png" id="3_7clw2"]
+[ext_resource type="Texture2D" uid="uid://cwqv47y86dsgn" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_foreground.png" id="4_jc6gn"]
+[ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_n35ea"]
+[ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_knvfk"]
+[ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_5nvrn"]
+[ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="8_4p1ou"]
+[ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_5ei4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
+size = Vector2(2, 20)
+
+[node name="Seance" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Parallax Layers" type="Node2D" parent="Environment"]
+
+[node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+position = Vector2(1, 0)
+script = ExtResource("1_6e7ec")
+parallax = Vector2(0.5, 0.5)
+
+[node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+z_index = -2
+texture = ExtResource("2_bj81s")
+
+[node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]
+script = ExtResource("1_6e7ec")
+parallax = Vector2(0, 0)
+
+[node name="Mid Body" type="StaticBody2D" parent="Environment/Parallax Layers/Mid"]
+
+[node name="@CollisionPolygon2D@575783" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(5, 640, 640, 640, 640, 1, 357, 1, 357, 13, 358, 13, 358, 14, 359, 14, 359, 16, 360, 16, 360, 106, 359, 106, 359, 171, 360, 171, 360, 176, 359, 176, 359, 178, 358, 178, 358, 179, 357, 179, 357, 180, 356, 180, 356, 181, 354, 181, 354, 182, 349, 182, 349, 183, 347, 183, 347, 184, 343, 184, 343, 215, 342, 215, 342, 252, 349, 252, 349, 253, 363, 253, 363, 254, 390, 254, 390, 255, 391, 255, 391, 330, 386, 330, 386, 331, 382, 331, 382, 332, 378, 332, 378, 333, 377, 333, 377, 335, 381, 335, 381, 336, 384, 336, 384, 337, 377, 337, 377, 338, 374, 338, 374, 339, 371, 339, 371, 340, 368, 340, 368, 341, 366, 341, 366, 343, 368, 343, 368, 344, 370, 344, 370, 345, 372, 345, 372, 346, 374, 346, 374, 347, 377, 347, 377, 348, 375, 348, 375, 349, 372, 349, 372, 350, 368, 350, 368, 352, 370, 352, 370, 353, 373, 353, 373, 354, 377, 354, 377, 355, 380, 355, 380, 356, 346, 356, 346, 357, 347, 357, 347, 358, 317, 358, 317, 359, 305, 359, 305, 358, 292, 358, 292, 357, 294, 357, 294, 356, 259, 356, 259, 357, 192, 357, 192, 356, 191, 356, 191, 355, 190, 355, 190, 352, 191, 352, 191, 350, 190, 350, 190, 344, 186, 344, 186, 343, 185, 343, 185, 342, 184, 342, 184, 339, 185, 339, 185, 338, 186, 338, 186, 337, 194, 337, 194, 336, 195, 336, 195, 335, 196, 335, 196, 334, 275, 334, 275, 326, 277, 326, 277, 324, 273, 324, 273, 323, 266, 323, 266, 322, 268, 322, 268, 321, 269, 321, 269, 320, 270, 320, 270, 319, 271, 319, 271, 318, 273, 318, 273, 317, 274, 317, 274, 316, 275, 316, 275, 315, 276, 315, 276, 314, 264, 314, 264, 313, 265, 313, 265, 312, 266, 312, 266, 311, 267, 311, 267, 310, 269, 310, 269, 309, 270, 309, 270, 308, 272, 308, 272, 306, 266, 306, 266, 305, 262, 305, 262, 304, 263, 304, 263, 303, 265, 303, 265, 302, 267, 302, 267, 301, 268, 301, 268, 300, 270, 300, 270, 299, 272, 299, 272, 297, 266, 297, 266, 296, 262, 296, 262, 295, 263, 295, 263, 294, 265, 294, 265, 293, 266, 293, 266, 292, 269, 292, 269, 291, 270, 291, 270, 290, 271, 290, 271, 289, 254, 289, 254, 290, 252, 290, 252, 265, 254, 265, 254, 264, 253, 264, 253, 260, 254, 260, 254, 259, 255, 259, 255, 258, 256, 258, 256, 257, 257, 257, 257, 256, 258, 256, 258, 255, 259, 255, 259, 254, 260, 254, 260, 253, 288, 253, 288, 252, 300, 252, 300, 251, 299, 251, 299, 239, 298, 239, 298, 238, 296, 238, 296, 237, 294, 237, 294, 236, 293, 236, 293, 235, 292, 235, 292, 234, 291, 234, 291, 225, 292, 225, 292, 215, 293, 215, 293, 203, 294, 203, 294, 194, 295, 194, 295, 178, 294, 178, 294, 156, 292, 156, 292, 155, 290, 155, 290, 154, 289, 154, 289, 153, 288, 153, 288, 151, 287, 151, 287, 142, 286, 142, 286, 108, 287, 108, 287, 89, 288, 89, 288, 52, 289, 52, 289, 45, 290, 45, 290, 1, 5, 1)
+
+[node name="@CollisionPolygon2D@575784" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Mid/Mid Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(295, 290, 296, 290, 296, 297, 295, 297, 295, 306, 277, 306, 277, 307, 278, 307, 278, 309, 279, 309, 279, 310, 280, 310, 280, 312, 281, 312, 281, 314, 282, 314, 282, 315, 283, 315, 283, 316, 284, 316, 284, 317, 295, 317, 295, 328, 296, 328, 296, 332, 295, 332, 295, 334, 296, 334, 296, 335, 297, 335, 297, 336, 302, 336, 302, 335, 314, 335, 314, 330, 315, 330, 315, 329, 316, 329, 316, 328, 317, 328, 317, 327, 325, 327, 325, 328, 326, 328, 326, 329, 327, 329, 327, 330, 328, 330, 328, 331, 329, 331, 329, 335, 341, 335, 341, 334, 342, 334, 342, 333, 344, 333, 344, 332, 345, 332, 345, 331, 346, 331, 346, 327, 345, 327, 345, 321, 344, 321, 344, 317, 343, 317, 343, 316, 365, 316, 365, 315, 366, 315, 366, 310, 367, 310, 367, 307, 368, 307, 368, 306, 369, 306, 369, 305, 343, 305, 343, 290, 344, 290, 344, 289, 334, 289, 334, 290, 335, 290, 335, 313, 336, 313, 336, 318, 335, 318, 335, 321, 334, 321, 334, 322, 310, 322, 310, 321, 307, 321, 307, 320, 306, 320, 306, 315, 305, 315, 305, 310, 306, 310, 306, 290, 307, 290, 307, 289, 295, 289)
+
+[node name="Level2Midground" type="Sprite2D" parent="Environment/Parallax Layers/Mid"]
+texture = ExtResource("3_7clw2")
+
+[node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
+visible = false
+script = ExtResource("1_6e7ec")
+parallax = Vector2(-2, -2)
+
+[node name="Fore Body" type="StaticBody2D" parent="Environment/Parallax Layers/Fore"]
+
+[node name="@CollisionPolygon2D@575785" type="CollisionPolygon2D" parent="Environment/Parallax Layers/Fore/Fore Body"]
+position = Vector2(-320, -320)
+polygon = PackedVector2Array(3, 640, 640, 640, 640, 0, 321, 0, 321, 225, 322, 225, 322, 250, 323, 250, 323, 264, 324, 264, 324, 265, 325, 265, 325, 266, 326, 266, 326, 268, 327, 268, 327, 269, 328, 269, 328, 270, 339, 270, 339, 271, 342, 271, 342, 272, 344, 272, 344, 273, 346, 273, 346, 274, 348, 274, 348, 275, 349, 275, 349, 276, 350, 276, 350, 277, 352, 277, 352, 279, 353, 279, 353, 283, 349, 283, 349, 285, 350, 285, 350, 287, 351, 287, 351, 290, 352, 290, 352, 294, 353, 294, 353, 329, 350, 329, 350, 334, 349, 334, 349, 336, 291, 336, 291, 334, 290, 334, 290, 329, 287, 329, 287, 294, 288, 294, 288, 290, 289, 290, 289, 287, 290, 287, 290, 285, 291, 285, 291, 283, 287, 283, 287, 279, 288, 279, 288, 277, 290, 277, 290, 276, 291, 276, 291, 275, 292, 275, 292, 274, 294, 274, 294, 273, 296, 273, 296, 272, 298, 272, 298, 271, 301, 271, 301, 270, 312, 270, 312, 269, 313, 269, 313, 268, 314, 268, 314, 266, 315, 266, 315, 265, 316, 265, 316, 264, 317, 264, 317, 250, 318, 250, 318, 225, 319, 225, 319, 0, 3, 0)
+
+[node name="Level2Foreground" type="Sprite2D" parent="Environment/Parallax Layers/Fore"]
+z_index = 1
+texture = ExtResource("4_jc6gn")
+
+[node name="Player" parent="." instance=ExtResource("5_n35ea")]
+position = Vector2(1, -11)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(1, -14)
+script = ExtResource("6_knvfk")
+target = NodePath("../Player/StateMachine/Soul")
+followSpeed = 10.0
+magnitude = 0.3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+script = ExtResource("7_5nvrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gorgf")
+
+[node name="Chalice" parent="." instance=ExtResource("8_4p1ou")]
+position = Vector2(0, 14)
+
+[node name="Door" parent="." instance=ExtResource("9_5ei4e")]
+position = Vector2(-64, 28)
+scale = Vector2(-1, 1)
+
+[editable path="Player"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cubtkptyfpv0n"]
+[gd_scene load_steps=4 format=3 uid="uid://cubtkptyfpv0n"]
 
 [ext_resource type="Script" path="res://Scripts/Door.gd" id="1_du0dn"]
+[ext_resource type="Texture2D" uid="uid://deyakr5m6odab" path="res://Sprites/Lantern/Lantern_layer 1.png" id="2_323xt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur0sv"]
 size = Vector2(20, 42)
@@ -11,3 +12,8 @@ script = ExtResource("1_du0dn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ur0sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-14, -5)
+texture = ExtResource("2_323xt")

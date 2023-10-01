@@ -21,6 +21,7 @@ script = ExtResource("1_ccfag")
 parallax = Vector2(1, 0)
 
 [node name="Level2Background" type="Sprite2D" parent="Environment/Parallax Layers/Back"]
+z_index = -2
 texture = ExtResource("2_in5wn")
 
 [node name="Mid" type="Node2D" parent="Environment/Parallax Layers"]

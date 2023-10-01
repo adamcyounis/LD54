@@ -159,10 +159,12 @@ stream = ExtResource("19_yqy3f")
 shape = SubResource("CircleShape2D_mr4e6")
 
 [node name="Sprite2D" type="Sprite2D" parent="StateMachine/Soul"]
+z_index = 2
 texture = ExtResource("20_0263p")
 hframes = 7
 
 [node name="Arrow" type="Sprite2D" parent="StateMachine" node_paths=PackedStringArray("target")]
+z_index = 2
 position = Vector2(3, -17)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_0263p")

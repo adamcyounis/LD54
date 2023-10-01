@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drmepl3nm5p3l"]
+[gd_scene load_steps=9 format=3 uid="uid://drmepl3nm5p3l"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_erery"]
 [ext_resource type="Texture2D" uid="uid://cld7hqn4f3oxw" path="res://Sprites/Level Designs/Level 2/Level 2_background.png" id="2_art2h"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_6e7cf"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_cu0pi"]
 [ext_resource type="PackedScene" uid="uid://4yas8a0hg7og" path="res://Levels/04_The Gap.tscn" id="8_gwfvx"]
-[ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="9_pl2nh"]
 
 [node name="Moves with Player" type="Node2D"]
 
@@ -17,6 +16,7 @@
 [node name="Parallax Layers" type="Node2D" parent="Environment"]
 
 [node name="Back" type="Node2D" parent="Environment/Parallax Layers"]
+z_index = -2
 script = ExtResource("1_erery")
 parallax = Vector2(1, 0)
 
@@ -70,10 +70,7 @@ followSpeed = 10.0
 magnitude = 0.5
 
 [node name="Door" parent="." instance=ExtResource("7_cu0pi")]
-position = Vector2(108, 60)
+position = Vector2(109, 67)
 nextScene = ExtResource("8_gwfvx")
-
-[node name="Chalice" parent="." instance=ExtResource("9_pl2nh")]
-position = Vector2(-35, 19)
 
 [editable path="Player"]
