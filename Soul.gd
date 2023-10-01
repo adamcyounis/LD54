@@ -16,6 +16,7 @@ func _ready():
 	set_state(despawn)
 
 func enter():
+	body.velocity = Vector2(0,0)
 	super()
 	if(state == fly):
 		set_state(fly)

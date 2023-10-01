@@ -76,12 +76,12 @@ magnitude = 0.2
 position = Vector2(74, 55)
 nextScene = ExtResource("8_imq0v")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="KillZone" type="Area2D" parent="."]
 position = Vector2(-5, 131)
 collision_mask = 5
 script = ExtResource("9_shbmy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(21.5, 12.5)
 shape = SubResource("RectangleShape2D_w1i5w")
 

@@ -4,6 +4,9 @@ var input: Vector2 = Vector2(0,0)
 @export var maxSpeed: float = 200
 @export var decay: float =0.95
 
+func enter():
+	super()
+
 func do():
 	super()
 	check_input()

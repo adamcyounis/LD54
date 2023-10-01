@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://idxyan3q5dh5" path="res://Player.tscn" id="5_g4mv1"]
 [ext_resource type="Script" path="res://Scripts/Follow.gd" id="6_r0pv6"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="7_klftm"]
-[ext_resource type="PackedScene" uid="uid://d2ipxvd4j6c61" path="res://Levels/moves_between_points.tscn" id="8_7ok4n"]
+[ext_resource type="PackedScene" uid="uid://4woefr12yxn3" path="res://Levels/BoxLight.tscn" id="8_038i6"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="9_50x1x"]
 
 [node name="Moves with Player" type="Node2D"]
@@ -68,7 +68,7 @@ magnitude = 0.7
 
 [node name="Door" parent="." instance=ExtResource("7_klftm")]
 position = Vector2(93, 55)
-nextScene = ExtResource("8_7ok4n")
+nextScene = ExtResource("8_038i6")
 
 [node name="Chalice" parent="." instance=ExtResource("9_50x1x")]
 position = Vector2(-64, 15)

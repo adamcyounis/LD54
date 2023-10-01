@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bk4ptr42f61f1"]
+[gd_scene load_steps=20 format=3 uid="uid://bk4ptr42f61f1"]
 
 [ext_resource type="Script" path="res://Scripts/00_GameManager.gd" id="1_1ig5f"]
 [ext_resource type="PackedScene" uid="uid://fb1qsne6gp0h" path="res://Levels/03_Blue.tscn" id="2_3stm7"]
@@ -12,6 +12,88 @@
 [ext_resource type="Texture2D" uid="uid://pcfmlv7hcin8" path="res://Sprites/Fader-Rotated.png" id="8_b7m78"]
 [ext_resource type="PackedScene" uid="uid://cf3qux07c8hyr" path="res://Levels/Levator.tscn" id="9_i7qol"]
 [ext_resource type="PackedScene" uid="uid://4woefr12yxn3" path="res://Levels/BoxLight.tscn" id="10_ryiy2"]
+[ext_resource type="PackedScene" uid="uid://bn73vlwykc1yx" path="res://Levels/Ascent.tscn" id="11_npynp"]
+
+[sub_resource type="Animation" id="Animation_o6n0n"]
+resource_name = "DownEnd"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -90), Vector2(-90, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_b7m78")]
+}
+
+[sub_resource type="Animation" id="Animation_akn6j"]
+resource_name = "DownStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -360), Vector2(-90, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_b7m78")]
+}
+
+[sub_resource type="Animation" id="Animation_hw7t2"]
+resource_name = "ForwardEnd"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Wiper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, -90), Vector2(-360, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_2scr3")]
+}
 
 [sub_resource type="Animation" id="Animation_b23xw"]
 resource_name = "ForwardStart"
@@ -67,87 +149,6 @@ tracks/1/keys = {
 "values": [ExtResource("7_2scr3")]
 }
 
-[sub_resource type="Animation" id="Animation_hw7t2"]
-resource_name = "ForwardEnd"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Wiper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-90, -90), Vector2(-360, -90)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_2scr3")]
-}
-
-[sub_resource type="Animation" id="Animation_akn6j"]
-resource_name = "DownStart"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Wiper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-90, -360), Vector2(-90, -90)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("8_b7m78")]
-}
-
-[sub_resource type="Animation" id="Animation_o6n0n"]
-resource_name = "DownEnd"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Wiper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-90, -90), Vector2(-90, 180)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Wiper:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("8_b7m78")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iv48i"]
 _data = {
 "DownEnd": SubResource("Animation_o6n0n"),
@@ -159,7 +160,7 @@ _data = {
 
 [node name="GameManager" type="Node2D" node_paths=PackedStringArray("sceneFader", "container")]
 script = ExtResource("1_1ig5f")
-scenes = Array[PackedScene]([ExtResource("2_sxqsy"), ExtResource("10_ryiy2"), ExtResource("9_i7qol"), ExtResource("2_n28jv"), ExtResource("2_og772"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_hsw4w"), ExtResource("2_3stm7")])
+scenes = Array[PackedScene]([ExtResource("10_ryiy2"), ExtResource("2_sxqsy"), ExtResource("11_npynp"), ExtResource("9_i7qol"), ExtResource("2_n28jv"), ExtResource("2_og772"), ExtResource("2_nk7th"), ExtResource("4_jgj4w"), ExtResource("2_hsw4w"), ExtResource("2_3stm7")])
 sceneFader = NodePath("AnimationPlayer")
 container = NodePath("Container")
 

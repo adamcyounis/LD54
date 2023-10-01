@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4woefr12yxn3"]
+[gd_scene load_steps=12 format=3 uid="uid://4woefr12yxn3"]
 
 [ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_6e7ec"]
 [ext_resource type="Texture2D" uid="uid://c6e36t7oftav3" path="res://Sprites/Level Designs/Level 9 - BoxLight/Level 9 - BoxLight_background.png" id="2_bj81s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Levels/CutsceneTrigger.gd" id="7_5nvrn"]
 [ext_resource type="PackedScene" uid="uid://dfla4tmti84gt" path="res://chalice.tscn" id="8_4p1ou"]
 [ext_resource type="PackedScene" uid="uid://cubtkptyfpv0n" path="res://door.tscn" id="9_5ei4e"]
+[ext_resource type="PackedScene" uid="uid://bn73vlwykc1yx" path="res://Levels/Ascent.tscn" id="10_qmr52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gorgf"]
 size = Vector2(2, 20)
@@ -46,7 +47,6 @@ polygon = PackedVector2Array(295, 290, 296, 290, 296, 297, 295, 297, 295, 306, 2
 texture = ExtResource("3_7clw2")
 
 [node name="Fore" type="Node2D" parent="Environment/Parallax Layers"]
-visible = false
 script = ExtResource("1_6e7ec")
 parallax = Vector2(-2, -2)
 
@@ -81,7 +81,8 @@ shape = SubResource("RectangleShape2D_gorgf")
 position = Vector2(0, 14)
 
 [node name="Door" parent="." instance=ExtResource("9_5ei4e")]
-position = Vector2(-64, 28)
+position = Vector2(-61, 28)
 scale = Vector2(-1, 1)
+nextScene = ExtResource("10_qmr52")
 
 [editable path="Player"]
